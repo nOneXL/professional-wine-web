@@ -6,13 +6,15 @@ import { pathHandler } from "./utils/pathHandler.js";
 const app = express();
 const router = express.Router()
 
-// App view engines
+// App settings
 app.set("view engine", "ejs");
 app.set("view engine", "pug")
 app.set("views", pathHandler("views"))
 
+app.use(express.static(pathHandler("public")));
+
 router.get("/", (req, res) => {
-    res.render("index.pug", {names: ["Gil", "Tomer", "Hai", "Dan"]});
+    res.render("index.pug");
 });
 
 app.get("/", router)
