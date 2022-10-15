@@ -6,10 +6,9 @@ import { pathHandler } from "./utils/pathHandler.js";
 const app = express();
 const router = express.Router()
 
-// App settings
+// App view engines
 app.set("view engine", "ejs");
 app.set("view engine", "pug")
-app.set("views", pathHandler("views"))
 
 app.use(express.static(pathHandler("public")));
 
