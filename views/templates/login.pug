@@ -1,0 +1,31 @@
+extends layout
+
+block css-content
+    link(href="/stylesheets/login.css" rel="stylesheet")
+
+block page-content
+    section.vh-100
+        .container-fluid
+            .row
+                .col-sm-6.text-black
+                    .px-5.ms-xl-4
+                        i.fas.fa-crow.fa-2x.me-3.pt-5.mt-xl-4(style='color: #709085;')
+                        span.h1.fw-bold.mb-0 Wine 🍷 Not?
+                    .d-flex.align-items-center.h-custom-2.px-5.ms-xl-4.mt-5.pt-5.pt-xl-0.mt-xl-n5
+                        form(style='width: 23rem;' action="/users")
+                            h3.fw-normal.mb-3.pb-3(style='letter-spacing: 1px;') Log in
+                            .form-outline.mb-4
+                                input#form2Example18.form-control.form-control-lg(type='email')
+                                label.form-label(for='form2Example18') Email address
+                            .form-outline.mb-4
+                                input#form2Example28.form-control.form-control-lg(type='password')
+                                label.form-label(for='form2Example28') Password
+                            .pt-1.mb-4.d-grid
+                                button.btn.btn-info.btn-lg.text-light(type='button') Login
+                            p.small.mb-5.pb-lg-2
+                                a.text-muted.text-decoration-none(href='#!') Forgot password?
+                            p
+                                | Don&apos;t have an account? 
+                                a.link-info.text-decoration-none(href='#!') Register here
+                .col-sm-6.px-0.d-none.d-sm-block
+                    img.w-100.vh-100(src='/images/saman-taheri-MXMs8q2OjeA-unsplash.jpg' alt='Login image' style='object-fit: cover; object-position: left;')
