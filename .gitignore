@@ -131,3 +131,6 @@ dist
 
 # IDEs
 .fleet/*
+
+# Private
+Git.txt
