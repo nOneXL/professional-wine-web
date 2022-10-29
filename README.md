@@ -13,7 +13,14 @@
 
 ## Tech Stack
 
-**Client:** PUG, EJX, Bootsrtap
+**Client:** PUG, EJS, Bootstrap
 
 **Server:** Node, Express
+
+
+## Documentation
+
+- [Bootstrap@5.1.3](https://getbootstrap.com/docs/5.1/getting-started/introduction/)
+- [jQuery@3.6.1](https://api.jquery.com/)
+- [PUG@3.0.2](https://pugjs.org/api/getting-started.html)
 
