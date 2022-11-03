@@ -1,0 +1,28 @@
+<link rel="stylesheet" href="/stylesheets/blog-card.css">
+
+<div class="card" style="width: 23rem; height: 28rem;">
+    <a href="/blog/<%= post.id %>">
+      <img src="/images/<%= post.image %>.jpg" class="card-img-top" alt="image" width="286" height="143">
+    </a>
+    <div class="card-body">
+      <div class="card-subtitle text-muted mb-2 date-title">
+        <%= post.createdAt.toLocaleDateString() %>
+      </div>
+      <h5 class="card-title"><%= post.title %></h5>
+      <% if(post.text.length > 200) { %>
+        <p class="card-text">
+          <%= post.text.substring(0, 197)%>...
+        </p>
+      <% } else{ %>  
+        <p class="card-text">
+          <%= post.text%>
+        </p>
+      <% } %>
+    </div>
+    <div class="function-buttons">
+      <form action="/blog/<%= post.id %>?_method=DELETE" method="POST">
+        <button type="submit" class="btn btn-danger function-button">Delete</button>
+      </form>
+      <a href="blog/edit/<%= post.id %>" class="btn btn-warning function-button">Edit</a>
+  </div>
+  </div>
