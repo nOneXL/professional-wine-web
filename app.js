@@ -8,6 +8,8 @@ import { indexRouter } from "./routes/index.js";
 import { blogRouter } from './routes/blogRoute.js';
 import { homeRouter } from './routes/homeRoute.js';
 import { wineryRouter } from './routes/wineryRoute.js';
+import { wineRouter } from './routes/wineRoute.js';
+import { countryRouter } from './routes/countryRoute.js';
 
 mongoose.connect(process.env.connectionString, {dbName: process.env.db})
   .then(() => {
@@ -26,7 +28,9 @@ mongoose.connect(process.env.connectionString, {dbName: process.env.db})
     );
     app.use("/", homeRouter)
     app.use("/blog", blogRouter)
-    app.use("/wineries", wineryRouter)
+    app.use("/winery", wineryRouter)
+    app.use("/wine", wineRouter)
+    app.use("/country", countryRouter)
 
     app.listen(process.env.PORT || 8080, ()=> console.log('Connected to the Database.'));
   })

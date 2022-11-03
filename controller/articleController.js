@@ -19,13 +19,13 @@ const create = async (req, res) => {
  
     try {
         await article.save()
-        res.redirect(`/blog/${article.id}`);
+        res.redirect(`/blog/article/${article.id}`);
     } catch(e) {
         console.log(e)
     }
 }
  
-const get = async (req, res) => {
+const getBlogPage = async (req, res) => {
     try {
         const articles = await Article.find()
         await res.render('pages/blog/blog.ejs', {
@@ -35,15 +35,50 @@ const get = async (req, res) => {
         console.log(e)
     }
 }
+
+const getEditPage = async (req, res) => {
+    try {
+        const article = await Article.findById(req.params.id)
+        await res.render('pages/blog/edit_blog.ejs', { article: article })
+    } catch(e) {
+        console.log(e)
+    }   
+  }
+
+const getNewPage = async (req, res) => {
+    try {
+        await res.render('pages/blog/new_blog.ejs', { article: new Article() })
+    } catch(e) {
+        console.log(e)
+    }   
+  }
+
+const getArticlePage = async (req, res) => {
+    try {
+    const article = await Article.findById(req.params.id);
+    res.render('pages/blog/article.ejs', {
+        article: article
+      });
+    } catch(e) {
+        console.log(e);
+    }
+}
+
+const get = async (req, res) => {
+    try {
+        const articles = await Article.find();
+        res.send(articles);
+    } catch(e) {
+        console.log(e);
+    }
+}
  
 const getById = async (req, res) => {
     try {
-    const article = await Article.findById(req.params.id)
-    res.render('pages/blog/article.ejs', {
-        article: article
-      })
+    const article = await Article.findById(req.params.id);
+    res.send(article);
     } catch(e) {
-        console.log(e)
+        console.log(e);
     }
 }
  
@@ -58,7 +93,7 @@ const update = async (req, res) => {
 
     try {
         await article_edit.save()
-        res.redirect(`/blog/${id}`);
+        res.redirect(`/blog/article/${id}`);
     } catch(e) {
         console.log(e)
     }
@@ -68,7 +103,7 @@ const remove = async (req, res) => {
     try {
         const {id} = req.params;
         await Article.findByIdAndDelete(id)
-        res.redirect('/blog')
+        res.redirect('/blog/page')
     } catch(e) {
         console.log(e)
     }
@@ -79,5 +114,9 @@ export {
     get,
     getById,
     update,
-    remove
+    remove,
+    getBlogPage,
+    getEditPage,
+    getNewPage,
+    getArticlePage
 }

@@ -1,7 +1,7 @@
 <link rel="stylesheet" href="/stylesheets/blog-card.css">
 
 <div class="card" style="width: 23rem; height: 28rem;">
-    <a href="/blog/<%= post.id %>">
+    <a href="/blog/article/<%= post.id %>">
       <img src="/images/<%= post.image %>.jpg" class="card-img-top" alt="image" width="286" height="143">
     </a>
     <div class="card-body">
@@ -23,6 +23,6 @@
       <form action="/blog/<%= post.id %>?_method=DELETE" method="POST">
         <button type="submit" class="btn btn-danger function-button">Delete</button>
       </form>
-      <a href="blog/edit/<%= post.id %>" class="btn btn-warning function-button">Edit</a>
+      <a href="/blog/edit/<%= post.id %>" class="btn btn-warning function-button">Edit</a>
   </div>
   </div>

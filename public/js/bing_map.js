@@ -1,41 +1,24 @@
-const yekevs = [
-    {
-        name: "Lotem Winery",
-        country: "Israel",
-        coordinates: [35.35764, 32.87994], 
-        website: "https://lotemwinery.co.il/"
-    },
-    {
-        name: "Amphorae Winery",
-        country: "Israel",
-        coordinates: [34.99382, 32.63958], 
-        website: "https://amphoraewines.com/"
-    },
-    {
-        name: "Berenice Winery",
-        country: "Israel",
-        coordinates: [35.53807, 32.79001], 
-        website: "https://www.berenicewinery.com/"
-    }, 
-    {
-        name: "Vitkin Winery",
-        country: "Israel",
-        coordinates: [34.89183, 32.38432], 
-        website: "https://vitkin-winery.co.il/"
-    },
-    {
-        name: "Champagne Météyer Winery",
-        country: "France",
-        coordinates: [3.61060, 49.07643], 
-        website: "https://www.champagne-meteyer.com/vin-de-champagne-cuvees-Exclusif-uk-34.html"
-    },
-    {
-        name: "Bodegas Campo Viejo Winery",
-        country: "Spain",
-        coordinates: [-2.47980, 42.47206], 
-        website: "https://www.campoviejo.com/es/"
+// const yekevs = [
+//     {
+//         name: "Lotem Winery",
+//         country: "Israel",
+//         coordinates: {lon: 35.35764, lat: 32.87994}, 
+//         website: "https://lotemwinery.co.il/"
+//     }]
+
+function getDecimal(value) {
+    if (typeof value !== 'undefined') {
+       return parseFloat(value.toString());
     }
-]
+    return value;
+}
+
+var yekevs
+$.ajax({
+    url: "/winery",
+    type: 'GET',})
+.then(res => {yekevs = res});
+
 var map, clusterLayer, infobox;
 
 function GetMap() {
@@ -57,22 +40,19 @@ function GetMap() {
 
 function createPins() {
 pins = []
-for (var i = 0; i < yekevs.length; i++) {
-    var lon = yekevs[i].coordinates[0]
-    var lat = yekevs[i].coordinates[1]
+yekevs.forEach(yekev => {
+    var lon = getDecimal(yekev.coordinates.lon["$numberDecimal"])
+    var lat = getDecimal(yekev.coordinates.lat["$numberDecimal"])
     var pin = new Microsoft.Maps.Pushpin(
-        new Microsoft.Maps.Location(latitude=lat, longitude=lon), {
-            icon: '/images/wine.png',
-            anchor: new Microsoft.Maps.Point(0, 0)
-        });
+    new Microsoft.Maps.Location(latitude=lat, longitude=lon), {
+        icon: '/images/wine.png',
+        anchor: new Microsoft.Maps.Point(0, 0)
+    });
+    pin.setOptions({ title: yekev.name})
     pins.push(pin)
-}
+    });
 
-for (var i = 0; i < yekevs.length; i++) {
-    pins[i].setOptions({ title: yekevs[i].name});
-}
-
-return pins;
+    return pins;
 }
 
 function createPinsCluster(cluster) {
