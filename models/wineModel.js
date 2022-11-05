@@ -9,14 +9,15 @@ const wineSchema = new mongoose.Schema({
         type: String,
         required: true
     },
+    region: {
+        type: String,
+        required: true
+    },
     winery: {
         type: String,
         required: true
     },
-    grapes: {
-        type: String,
-        required: true
-    },
+    grapes: [],
     type: {
         type: String,
         required: true

@@ -19,7 +19,6 @@ mongoose.connect(process.env.connectionString, {dbName: process.env.db})
 
     app.use(express.urlencoded({ extended: false }))
     app.use(methodOverride('_method'))
-    app.use(express.static('views'))
     app.use(express.static('public'))
 
     app.use(
@@ -29,7 +28,7 @@ mongoose.connect(process.env.connectionString, {dbName: process.env.db})
     app.use("/", homeRouter)
     app.use("/blog", blogRouter)
     app.use("/winery", wineryRouter)
-    app.use("/wine", wineRouter)
+    app.use("/wines", wineRouter)
     app.use("/country", countryRouter)
 
     app.listen(process.env.PORT || 8080, ()=> console.log('Connected to the Database.'));
