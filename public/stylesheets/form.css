@@ -1,0 +1,13 @@
+.buttons {
+    margin-top: 15px;
+}
+
+.prev-img {
+    max-width: 100%;
+    width: 350px;
+    height: 250px;
+}
+
+.title {
+    text-align: center;
+}

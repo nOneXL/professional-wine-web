@@ -1,0 +1,6 @@
+body {
+    background-image: url("../images/new-article-background.jpg");
+    z-index: 100;
+    background-repeat: repeat-y;
+     background-size: cover;
+}

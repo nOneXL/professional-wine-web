@@ -1,0 +1,22 @@
+body {
+    background-image: url("../images/wine-background.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+.blog-main-div {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    top: 20px;
+}
+
+.wine-card {
+    margin-top: 40px;
+}
+
+.blog-filters {
+    position: relative;
+    text-align: center;
+}

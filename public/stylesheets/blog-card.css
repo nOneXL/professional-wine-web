@@ -1,0 +1,30 @@
+.function-buttons form {
+    display: inline-block
+}
+
+.function-button {
+    height: 40px;
+    width: 11rem;
+}
+
+.card {
+    transition: 1s ease;
+}
+
+.card:hover {
+    -webkit-transform: scale(1.1);
+    -ms-transform: scale(1.1);
+    transform: scale(1.1);
+    transition: 1s ease;
+    z-index: 99;
+}
+
+.card-img-top {
+    opacity:0.8;
+    transition: 1s ease;
+}
+
+.card-img-top:hover {
+    opacity:1;
+    transition: 1s ease;
+}

@@ -1,0 +1,54 @@
+.wine-page {
+    width: 60%;
+    position: relative;
+}
+
+.sidebar {
+    /* margin-left: 40vh; */
+    position: relative;
+    width:20vh;
+    height: 100vh;
+    background-color:white;
+    border:solid rgb(0, 0, 0);
+}
+
+.filter-ul {
+    margin-top: 10px;
+}
+
+.filter-li {
+    margin-top: 40px;
+}
+
+.drop-button {
+    margin-left: 20%
+}
+
+.wine-cards {
+    margin-left: 25%;
+}
+
+.wine-page {
+    position: relative;
+    height: 100%;
+    width: 80%;
+}
+
+.offers-count {
+    /* float: right; */
+    position: absolute;
+    left: 70%;
+    top: 20%;
+}
+
+.wine-cards {
+    float:right;
+    margin-left: 80vh;
+    position: absolute;
+    top: 0%;
+    width:25vh;
+    height: 100vh;
+    /* border:solid rgb(0, 0, 0); */
+}
+
+html, body { height: 100%; width: 100%; margin: 0; }

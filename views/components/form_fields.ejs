@@ -1,0 +1,36 @@
+<link type="text/css" rel="stylesheet" href="/stylesheets/form.css">
+<div class="container">
+<div class="form-group">
+    <label for="title">Title</label>
+    <input required value="<%= article.title %>" type="text" name="title" id="title" class="form-control">
+  </div>
+  <div class="form-group">
+    <label for="text">text</label>
+    <textarea name="text" id="text" class="form-control"><%= article.text %></textarea>
+  </div>
+  <div class="form-group">
+    <label class="mr-sm-2" for="inlineFormCustomSelect">Image preference</label>
+    <select name="image" id="image-select" class="custom-select mr-sm-2" id="inlineFormCustomSelect">
+      <% const images = ["wine1","wine2","wine3","wine4","wine5","wine6","wine7","wine8","wine9","wine10"]; %>
+      <% if(article.image){ %>
+        <option>Choose...</option>
+        <% images.forEach(function(img){ %>
+          <% var selected = ( img == article.image ) ? "selected" : ""; %>
+          <option value="<%= img %>" <%= selected %> ><%= img %></option>
+       <% }); %>
+      <% } else { %>  
+        <option selected>Choose...</option>
+        <% images.forEach(function(img){ %>
+          <option value="<%= img %>"><%= img %></option>
+       <% }); %>
+     <% } %>
+</select>
+  </div>
+  <div id="empty-div"></div>
+  <div class="buttons">
+    <a href="/blog/page" class="btn btn-secondary">Cancel</a>
+    <button type="submit" class="btn btn-primary">Save</button>
+ </div>
+</div>
+
+  <script src="/js/form.js"></script>

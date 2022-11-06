@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.1.js" integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script>
+    <script src="/js/blog-card-filter-options.js"></script>
+    <link type="text/css" rel="stylesheet" href="/stylesheets/blog-card-filter-options.css">
+    <link type="text/css" rel="stylesheet" href="/stylesheets/blog.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wine 🍷 Not?</title>
+</head>
+<body>
+    <div>
+        <%- include('../../components/navbar.ejs'); %>
+    </div>
+
+    <div class="blog-main-div">
+        <div class="container blog-filters">
+            <%- include('../../components/blog-card-filter-options.ejs'); %>
+        </div>
+        <div class="container-fluid">
+            <div class="row">
+            <% for(var i=0; i < blog_post_list.length; i++) { %>
+                <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 wine-card" >
+                <%- include('../../components/blog-card.ejs', {post: blog_post_list[i]}); %>
+                </div>
+            <% } %>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
