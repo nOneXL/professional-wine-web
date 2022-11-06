@@ -17,9 +17,7 @@ const wineSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    grapes: [{
-        required: true
-    }],
+    grapes: [{type: String, required: true}],
     type: {
         type: String,
         required: true
