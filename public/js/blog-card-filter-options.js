@@ -2,7 +2,7 @@ function reverseString(str) {
     return str.split("-").reverse().join("/");
 }
 
-$(document).ready(function(){
+$(document).on(() =>{
     $("#myInput").on("keyup", function() {
       var value = $(this).val().toLowerCase();
       $(".row .wine-card").filter(function() {
