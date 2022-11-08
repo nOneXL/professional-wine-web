@@ -42,7 +42,7 @@ const getEditPage = async (req, res) => {
 
 const getNewPage = async (req, res) => {
     try {
-        await res.render('pages/wines/new_wine.ejs', { wine: new Wine() })
+        await res.render('pages/wines/addwine.ejs', { wine: new Wine() })
     } catch(e) {
         console.log(e)
     }   
