@@ -12,7 +12,7 @@
   <div class="container">
     <h1 class="mb-4 title">Edit Article</h1>
     <form action="/blog/<%= article.id %>?_method=PUT" method="POST">
-      <%- include('../../components/form_fields.ejs') %>
+      <%- include("../../components/form_fields.ejs") %>
     </form>
   </div>
 </body>

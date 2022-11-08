@@ -1,10 +1,9 @@
 import express from "express";
 
-var router = express.Router();
+const homeRouter = express.Router();
 
-router.get('/', function(req, res) {
-    res.render('pages/home.ejs');
-  });
+homeRouter.get("/", function (req, res) {
+  res.render("pages/home.ejs");
+});
 
-
-export { router as homeRouter };
+export default homeRouter;

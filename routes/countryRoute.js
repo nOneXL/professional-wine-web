@@ -1,16 +1,16 @@
 import express from "express";
-import * as countryController from '../controller/countryController.js'
+import * as countryController from "../controllers/countryController.js";
 
-var router = express.Router();
+const countryRoute = express.Router();
 
-router.get('/', countryController.get);
+countryRoute.get("/", countryController.get);
 
-router.get("/:id", countryController.getById);
+countryRoute.get("/:id", countryController.getById);
 
-router.delete("/:id", countryController.remove);
+countryRoute.delete("/:id", countryController.remove);
 
-router.post("/", countryController.create);
+countryRoute.post("/", countryController.create);
 
-router.put("/:id", countryController.update);
+countryRoute.put("/:id", countryController.update);
 
-export { router as countryRouter };
+export default countryRoute;

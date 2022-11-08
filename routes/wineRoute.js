@@ -1,30 +1,30 @@
 import express from "express";
-import * as wineController from '../controller/wineController.js'
+import * as wineController from "../controllers/wineController.js";
 
-var router = express.Router();
+const wineRouter = express.Router();
 
-router.get('/page', wineController.getWinesPage);
+wineRouter.get("/page", wineController.getWinesPage);
 
-router.get('/new', wineController.getNewPage);
+wineRouter.get("/new", wineController.getNewPage);
 
-router.get('/edit/:id', wineController.getEditPage);
+wineRouter.get("/edit/:id", wineController.getEditPage);
 
-router.get('/addoffer/:id', wineController.getNewOfferPage);
+wineRouter.get("/addoffer/:id", wineController.getNewOfferPage);
 
-router.get("/page/:id", wineController.getWinePage);
+wineRouter.get("/page/:id", wineController.getWinePage);
 
-router.get("/", wineController.get)
+wineRouter.get("/", wineController.get);
 
-router.get("/:id", wineController.getById)
+wineRouter.get("/:id", wineController.getById);
 
-router.delete("/:id", wineController.remove);
+wineRouter.delete("/:id", wineController.remove);
 
-router.delete("/removeoffer/:id&:num", wineController.removeoffer);
+wineRouter.delete("/removeoffer/:id&:num", wineController.removeOffer);
 
-router.post("/", wineController.create);
+wineRouter.post("/", wineController.create);
 
-router.put("/:id", wineController.update);
+wineRouter.put("/:id", wineController.update);
 
-router.put("/addoffer/:id", wineController.addoffer);
+wineRouter.put("/addoffer/:id", wineController.addOffer);
 
-export { router as wineRouter };
+export default wineRouter;

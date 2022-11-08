@@ -19,7 +19,7 @@
 
 <body>
   <div>
-    <%- include('../../components/navbar2.ejs'); %>
+    <%- include("../../components/navbar2.ejs"); %>
 
   </div>
   <a href="/wines/new" class="btn btn-success"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
@@ -30,11 +30,11 @@
   <div class="wine-page">
 
 
-    <%- include('../../components/wine_page_side_filters.ejs', {wines: wines}); %>
+    <%- include("../../components/wine_page_side_filters.ejs", {wines: wines}); %>
       <div class="wine-cards">
         <% for(var i=0; i < wines.length; i++) { %>
           <div class="wine-card">
-            <%- include('../../components/wine-card.ejs', {wine: wines[i]}); %>
+            <%- include("../../components/wine-card.ejs", {wine: wines[i]}); %>
           </div>
           <% } %>
       </div>

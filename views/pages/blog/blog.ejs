@@ -14,18 +14,18 @@
 </head>
 <body>
     <div>
-        <%- include('../../components/navbar2.ejs'); %>
+        <%- include("../../components/navbar2.ejs"); %>
     </div>
 
     <div class="blog-main-div">
         <div class="container blog-filters">
-            <%- include('../../components/blog-card-filter-options.ejs'); %>
+            <%- include("../../components/blog-card-filter-options.ejs"); %>
         </div>
         <div class="container-fluid">
             <div class="row">
             <% for(var i=0; i < blog_post_list.length; i++) { %>
                 <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 wine-card" >
-                <%- include('../../components/blog-card.ejs', {post: blog_post_list[i]}); %>
+                <%- include("../../components/blog-card.ejs", {post: blog_post_list[i]}); %>
                 </div>
             <% } %>
             </div>

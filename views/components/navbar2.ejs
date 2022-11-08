@@ -1,45 +1,46 @@
 <link rel="stylesheet" href="/stylesheets/navbar.css">
 <nav class="navbar navbar-expand-lg bg-light">
     <div class="container-fluid">
-  
-      <a class="navbar-brand" href="/">
-        <canvas id="myCanvas" width="200" height="50">
-      </a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
 
-          <li>
-            <img src="/images/bottle.png" alt="image" width="25" height="25">
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/wines/page">Wines</a>
-          </li>
-          <li>
-            <img src="/images/grapes.jpg" alt="image" width="25" height="25">
-          </li>
-          <li class="dropdown nav-link winery"><span>Winery</span> <i class="bi bi-chevron-down"></i>
-            <ul>
-              <a href="/winery/wineries" class="nav-link">Wineries</a>
-              <a href="/winery/map" class="nav-link">Map</a>
+        <a class="navbar-brand" href="/">
+            <canvas id="myCanvas" width="200" height="50"></canvas>
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+
+                <li>
+                    <img src="/images/bottle.png" alt="image" width="25" height="25">
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/wines/page">Wines</a>
+                </li>
+                <li>
+                    <img src="/images/grapes.jpg" alt="image" width="25" height="25">
+                </li>
+                <li class="dropdown nav-link winery"><span>Winery</span> <i class="bi bi-chevron-down"></i>
+                    <ul>
+                        <a href="/winery/wineries" class="nav-link">Wineries</a>
+                        <a href="/winery/map" class="nav-link">Map</a>
+                    </ul>
+                </li>
+                <li>
+                    <img src="/images/blog.png" alt="image" width="20" height="20">
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/blog/page">Blog</a>
+                </li>
             </ul>
-          </li>
-          <li>
-            <img src="/images/blog.png" alt="image" width="20" height="20">
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/blog/page">Blog</a>
-          </li>
-        </ul>
-      </div>
+        </div>
     </div>
-  </nav>
-  
-  <script>
-    var c = document.getElementById("myCanvas");
-    var ctx = c.getContext("2d");
+</nav>
+
+<script>
+    const c = document.getElementById("myCanvas");
+    let ctx = c.getContext("2d");
     ctx.font = "30px Arial";
-    ctx.fillText("Wine 🍷 Not?",0,40);
-  </script>
+    ctx.fillText("Wine 🍷 Not?", 0, 40);
+</script>

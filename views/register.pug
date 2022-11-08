@@ -9,9 +9,10 @@ block bloat-additive-content
     link(href="/stylesheets/register.css" rel="stylesheet")
 
 block page-content
-    section.h-100.bg-dark
-        .container.py-5.h-100
-            .row.d-flex.justify-content-center.align-items-center.h-100
+    include ./components/navbar
+    section.bg-dark
+        .container.py-5.vh-100
+            .row.d-flex.justify-content-center.align-items-center
                 .col
                     .card.card-registration.my-4
                         .row.g-0
@@ -20,54 +21,39 @@ block page-content
                             .col-xl-6
                                 .card-body.p-md-5.text-black
                                     h3.mb-5.text-uppercase Registration
-                                    .row
-                                        .col-md-6.mb-4
-                                            .form-outline
-                                                input#form3Example1m.form-control.form-control-lg.border(type="text")
-                                                label.form-label(for="form3Example1m") First name
-                                        .col-md-6.mb-4
-                                            .form-outline
-                                                input#form3Example1n.form-control.form-control-lg.border(type="text")
-                                                label.form-label(for="form3Example1n") Last name
-                                    .form-outline.mb-4
-                                        input#form3Example8.form-control.form-control-lg.border(type="text")
-                                        label.form-label(for="form3Example8") Address
-                                    .d-md-flex.justify-content-start.align-items-center.mb-4.py-2
-                                        h6.mb-0.me-4 Gender: 
-                                        .form-check.form-check-inline.mb-0.me-4
-                                            input#femaleGender.form-check-input(type="radio" name="inlineRadioOptions" value="option1")
-                                            label.form-check-label(for="femaleGender") Female
-                                        .form-check.form-check-inline.mb-0.me-4
-                                            input#maleGender.form-check-input(type="radio" name="inlineRadioOptions" value="option2")
-                                            label.form-check-label(for="maleGender") Male
-                                        .form-check.form-check-inline.mb-0
-                                            input#otherGender.form-check-input(type="radio" name="inlineRadioOptions" value="option3")
-                                            label.form-check-label(for="otherGender") Other
-                                    .row
-                                        .col-md-6.mb-4
-                                            select.select.form-select
-                                                option(value="1") State
-                                                option(value="2") Option 1
-                                                option(value="3") Option 2
-                                                option(value="4") Option 3
-                                        .col-md-6.mb-4
-                                            select.select.form-select
-                                                option(value="1") City
-                                                option(value="2") Option 1
-                                                option(value="3") Option 2
-                                                option(value="4") Option 3
-                                    .form-outline.mb-4
-                                        input#form3Example9.form-control.form-control-lg.border(type="text")
-                                        label.form-label(for="form3Example9") DOB
-                                    .form-outline.mb-4
-                                        input#form3Example90.form-control.form-control-lg.border(type="text")
-                                        label.form-label(for="form3Example90") Zipcode
-                                    .form-outline.mb-4
-                                        input#form3Example99.form-control.form-control-lg.border(type="text")
-                                        label.form-label(for="form3Example99") Course
-                                    .form-outline.mb-4
-                                        input#form3Example97.form-control.form-control-lg.border(type="text")
-                                        label.form-label(for="form3Example97") Email
-                                    .d-flex.justify-content-end.pt-3
-                                        button.btn.btn-light.btn-lg(type="button") Reset all
-                                        button.btn.btn-primary.btn-lg.ms-2(type="button") Register
+                                    form(action="/users/register" method="POST")
+                                        .row
+                                            .col-md-6.mb-4
+                                                .form-outline
+                                                    input#firstname.form-control.form-control-lg.border(type="text" name="firstname")
+                                                    label.form-label(for="firstname") First name
+                                            .col-md-6.mb-4
+                                                .form-outline
+                                                    input#lastname.form-control.form-control-lg.border(type="text" name="lastname")
+                                                    label.form-label(for="lastname") Last name
+                                        .d-md-flex.justify-content-start.align-items-center.mb-4.py-2
+                                            h6.mb-0.me-4 Gender:
+                                            .form-check.form-check-inline.mb-0.me-4
+                                                input#femaleGender.form-check-input(type="radio" name="gender" value="Female")
+                                                label.form-check-label(for="femaleGender") Female
+                                            .form-check.form-check-inline.mb-0.me-4
+                                                input#maleGender.form-check-input(type="radio" name="gender" value="Male")
+                                                label.form-check-label(for="maleGender") Male
+                                            .form-check.form-check-inline.mb-0
+                                                input#otherGender.form-check-input(type="radio" name="gender" value="Other")
+                                                label.form-check-label(for="otherGender") Other
+                                        .form-outline.mb-4
+                                            input#username.form-control.form-control-lg.border(type="text" name="username")
+                                            label.form-label(for="username") Username
+                                        .form-outline.mb-4
+                                            input#email.form-control.form-control-lg.border(type="text" name="email")
+                                            label.form-label(for="email") Email
+                                        .form-outline.mb-4
+                                            input#password.form-control.form-control-lg.border(type="password" name="password")
+                                            label.form-label(for="password") Password
+                                        .form-outline.mb-4
+                                            input#passwordConfirm.form-control.form-control-lg.border(type="password" name="passwordConfirm")
+                                            label.form-label(for="passwordConfirm") Confirm Password
+                                        .d-flex.justify-content-end.pt-3
+                                            button.btn.btn-light.btn-lg(type="button") Reset all
+                                            button.btn.btn-primary.btn-lg.ms-2(type="submit") Register
