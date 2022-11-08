@@ -30,14 +30,14 @@ weatherUpdate = (city) => {
         Temp.innerHTML = `${Math.round(data.main.temp - 273.15)}°C`;
         best.innerHTML = "The best wine for this weather will be:"
         Bestwine.innerHTML = "White";
-        Pic.innerHTML = "<img src='/images/Whitewine.png' style='width:2%' >";
+        Pic.innerHTML = "<img src="/images/Whitewine.png" style="width:2%" >";
       }
       else{
         loc.innerHTML = "The weather in your location is:"
         Temp.innerHTML = `${Math.round(data.main.temp - 273.15)}°C`;
         best.innerHTML = "The best wine for this weather will be:"
         Bestwine.innerHTML = "Red";
-        Pic.innerHTML = "<img src='/images/Redwine.png' style='width:2%' >";
+        Pic.innerHTML = "<img src="/images/Redwine.png" style="width:2%" >";
         
       }
     }

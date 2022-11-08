@@ -9,27 +9,26 @@ block bloat-additive-content
     link(href="/stylesheets/login.css" rel="stylesheet")
 
 block page-content
+    include ./components/navbar
     section.vh-100
         .container-fluid
             .row
                 .col-sm-6.text-black
-                    .px-5.ms-xl-4
-                        span.h1.fw-bold.mb-0 Wine 🍷 Not?
                     .d-flex.align-items-center.h-custom-2.px-5.ms-xl-4.mt-5.pt-5.pt-xl-0.mt-xl-n5
-                        form(style="width: 23rem;")
+                        form(style="width: 23rem;" action="/users/login" method="POST")
                             h3.fw-normal.mb-3.pb-3(style="letter-spacing: 1px;") Log in
                             .form-outline.mb-4
-                                input#email.form-control.form-control-lg.border(type="email")
-                                label.form-label(for="form2Example18") Email address
+                                input#username.form-control.form-control-lg.border(type="username" name="username")
+                                label.form-label(for="username") Username
                             .form-outline.mb-4
-                                input#password.form-control.form-control-lg.border(type="password")
-                                label.form-label(for="form2Example28") Password
+                                input#password.form-control.form-control-lg.border(type="password" name="password")
+                                label.form-label(for="password") Password
                             .pt-1.mb-4
-                                button.btn.btn-info.btn-lg.btn-block(type="button") Login
+                                button.btn.btn-info.btn-lg.btn-block(type="submit") Login
                             p.small.mb-5.pb-lg-2
                                 a.text-muted(href="#!") Forgot password?
                             p
-                                | Don&apos;t have an account? 
+                                | Don&apos;t have an account? &nbsp;
                                 a.link-info(href="register") Register here
                 .col-sm-6.px-0.d-none.d-sm-block
                     img.w-100.vh-100(src="/assets/saman-taheri-MXMs8q2OjeA-unsplash.jpg" alt="Login image" style="object-fit: cover; object-position: left;")

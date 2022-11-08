@@ -1,23 +1,22 @@
 import express from "express";
-import * as WineryController from '../controller/wineryController.js'
+import * as WineryController from "../controllers/wineryController.js";
 
-var router = express.Router();
+const wineryRouter = express.Router();
 
-router.get('/', WineryController.get);
+wineryRouter.get("/", WineryController.get);
 
+wineryRouter.get("/new", WineryController.getNewPage);
 
-router.get("/new", WineryController.getNewPage);
+wineryRouter.get("/map", WineryController.getmap);
 
-router.get('/map', WineryController.getmap);
+wineryRouter.get("/wineries", WineryController.getwineries);
 
-router.get('/wineries', WineryController.getwineries);
+wineryRouter.get("/:id", WineryController.getById);
 
-router.get("/:id", WineryController.getById);
+wineryRouter.delete("/:id", WineryController.remove);
 
-router.delete("/:id", WineryController.remove);
+wineryRouter.post("/", WineryController.create);
 
-router.post("/", WineryController.create);
+wineryRouter.put("/:id", WineryController.update);
 
-router.put("/:id", WineryController.update);
-
-export { router as wineryRouter };
+export default wineryRouter;
