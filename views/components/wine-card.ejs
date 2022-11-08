@@ -1,9 +1,33 @@
-<div class="card" style="width: 40rem;">
+<div class="card" style="width: 50rem;">
+    <div>
+        <% if(wine.type=="White wine"){%>
+            <img src="/images/white-wine.jpg" class="card-img-rigth" alt="image" width="220" height="300">
+        <%}%>
+        <% if(wine.type=="Red wine"){%>
+            <img src="/images/red-wine.jpg" class="card-img-rigth" alt="image" width="220" height="300">
+        <%}%>
+        <% if(wine.type=="Rose wine"){%>
+            <img src="/images/rose-wine.jpg" class="card-img-rigth" alt="image" width="220" height="300">
+        <%}%>
+    </div>
+        
+
     <div class="card-body">
-        <h5 class="card-title"><%= wine.winery %></h5>
-        <h4 class="card-title"><%= wine.name %></h4>
-        <p class="card-text"><%= wine.region %>, <%= wine.country %></p>
-        <p class="card-text"><%= wine.rate %>/5</p>
-        <p class="card-text offers-count">Offers from: <%= wine.offers.length %> users</p>
-      </div>
-  </div>
+      
+            <h5 class="card-title">
+                <%= wine.winery %>
+            </h5>
+            <h4 class="card-title">
+                <%= wine.name %>
+            </h4>
+
+            <p class="card-text">
+                <%= wine.region %>, <%= wine.country %>
+            </p>
+            <p class="card-text">
+                <%= wine.rate %>/5
+            </p>
+            <p class="card-text offers-count">Offers from: <%= wine.offers.length %> users</p>
+        
+    </div>
+</div>
