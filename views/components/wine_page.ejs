@@ -1,11 +1,16 @@
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 <div class="card" style="width: 40rem;">
-    <div class="card-body">
-        <h5 class="card-title"><%= wine.winery %></h5>
-        <h4 class="card-title"><%= wine.name %></h4>
-        <p class="card-text"><%= wine.region %>, <%= wine.country %></p>
-        <p class="card-text"><%= wine.rate %>/5</p>
-        <p class="card-text offers-count">Offers from: <%= wine.offers.length %> users</p>
-      </div>
+
+  <% if(wine.type=="White wine"){%>
+    <img src="/images/white-wine.jpg" class="card-img-rigth" alt="image" width="220" height="300">
+<%}%>
+<% if(wine.type=="Red wine"){%>
+    <img src="/images/red-wine.jpg" class="card-img-rigth" alt="image" width="220" height="300">
+<%}%>
+<% if(wine.type=="Rose wine"){%>
+    <img src="/images/rose-wine.jpg" class="card-img-rigth" alt="image" width="220" height="300">
+<%}%>
+    
 
   </main>
   <div class="col-md-6 mb-4">
@@ -15,16 +20,35 @@
       <p class="lead">
        
       </p>
-      <p class="lead font-weight-bold">Description</p>
+      
       <table class="table table-borderless">
         <thead>
           <tr>
-            <th scope="col"></th>
-            <th scope="col"></th>
+            <th scope="col">Winery</th>
+            <th scope="col"><%= wine.winery %></th>
 
           </tr>
         </thead>
         <tbody>
+          <tr>
+            <th scope="row">Country</th>
+            <td><%= wine.country %></td>
+
+          </tr>
+          <tr>
+            <th scope="row">Region</th>
+            <td><%= wine.region %></td>
+
+          </tr>
+          <tr>
+            <th scope="row">Grapes</th>
+            <td>Cabernet Sauvignon</td>
+
+          </tr>
+          <tr>
+            <th scope="row">Rate</th>
+            <td colspan="2"><%= wine.rate %>/5</td>
+          </tr>
           <tr>
             <th scope="row">Year</th>
             <td><%= wine.year %></td>
@@ -43,7 +67,9 @@
       </table>
       
     </div>
-
+    
 
   </section>
   </div>
+
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
