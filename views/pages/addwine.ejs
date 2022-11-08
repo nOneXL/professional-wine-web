@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>WineRate</title>
+  <link rel="icon" type="image/x-icon" href="tablogo.jpg">
+  
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="styles.css" rel="stylesheet">
+  <link href="product.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+</head>
+
+<body>
+
+  <!-- ======= Header ======= -->
+  <header id="header" class="header fixed-top">
+    <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
+
+      <a href="index.html" class="logo d-flex align-items-center">
+        <img src="Logo.png" alt="">
+      </a>
+
+      <nav id="navbar" class="navbar navbar-expand-sm bg-light">
+        <ul>
+          <li><a class="nav-link scrollto" href="">Home</a></li>
+          <li><a class="nav-link scrollto" href="">About</a></li>
+          <li><a class="nav-link scrollto" href="">Blogs</a></li>
+          <li class="dropdown"><a href="#"><span>Wines</span> <i class="bi bi-chevron-down"></i></a>
+            <ul>
+              <li><a href="#">Red</a></li>
+              <li><a href="#">White</a></li>
+              <li><a href="#">Rose</a></li>
+            </ul>
+          </li>
+          <li><a class="nav-link scrollto" href="">Contact</a></li>
+          <li><a class="getstarted scrollto ml-auto" href="">Log in</a></li>
+        
+        </ul>
+      </nav><!-- .navbar -->
+
+    </div>
+  </header><!-- End Header -->
+
+  <section>
+  
+
+  <!--Main layout-->
+  <form action="" onsubmit="validate()">
+    <div class="form-group row">
+      <label  class="col-sm-2 col-form-label">Name</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" id="Name" placeholder="Name" >
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="validationDefault01" class="col-sm-2 col-form-label">Country</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" id="Country" placeholder="Country" >
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="validationDefault01" class="col-sm-2 col-form-label">Region</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" id="Region" placeholder="Region" >
+      </div>
+    </div>
+    <div class="form-group row">
+      <label  class="col-sm-2 col-form-label">Winery</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" id="Winery" placeholder="Winery" >
+      </div>
+    </div>
+    
+      <div class="form-group row">
+        <label class="col-sm-2 col-form-label">Grapes</label>
+        <div class="col-sm-10">
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="" id="Albarino to Baijiu" checked>
+            <label class="form-check-label" for="flexCheckDefault">
+              Albarino to Baijiu
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="" id="Brachetto" >
+            <label class="form-check-label" for="flexCheckChecked">
+              Brachetto
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="" id="Cabernet Franc" >
+            <label class="form-check-label" for="flexCheckChecked">
+              Cabernet Franc
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="" id="Cabernet Sauvignon" >
+            <label class="form-check-label" for="flexCheckChecked">
+              Cabernet Sauvignon
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="" id="Cabernet - Syrah - Tempranillo" >
+            <label class="form-check-label" for="flexCheckChecked">
+              Cabernet - Syrah - Tempranillo
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="" id="Cabernet Sauvignon - Pinot Noir" >
+            <label class="form-check-label" for="flexCheckChecked">
+              Cabernet Sauvignon - Pinot Noir
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="" id="Cabernet Sauvignon - Malbec" >
+            <label class="form-check-label" for="flexCheckChecked">
+              Cabernet Sauvignon - Malbec
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="" id="Cabernet - Syrah/Shiraz" >
+            <label class="form-check-label" for="flexCheckChecked">
+              Cabernet - Syrah/Shiraz
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="" id="Riesling" >
+            <label class="form-check-label" for="flexCheckChecked">
+              Riesling
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="" id="Merlot" >
+            <label class="form-check-label" for="flexCheckChecked">
+              Merlot
+            </label>
+          </div>
+        </div>
+      </div>
+      <div class="form-group row">
+        <label  class="col-sm-2 col-form-label">Year</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" id="Year" placeholder="Year" >
+        </div>
+      </div>
+    <fieldset class="form-group">
+      <div class="row">
+        <legend class="col-form-label col-sm-2">Type</legend>
+        <div class="col-sm-10">
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1" checked>
+            <label class="form-check-label" for="gridRadios1">
+              Red
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="option2">
+            <label class="form-check-label" for="gridRadios2">
+              White
+            </label>
+          </div>
+          <div class="form-check disabled">
+            <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios3" value="option3" >
+            <label class="form-check-label" for="gridRadios3">
+              Rose
+            </label>
+          </div>
+        </div>
+      </div>
+    </fieldset>
+
+   
+    <div class="form-group row ">
+        <label for="validationDefault01" class="col-sm-2 col-form-label">Image</label>
+        <div class="col-sm-10 ">
+            <input type="file" class="form-control d-none " id="customFile1" required/>
+        </div>
+        </div>
+      </div>
+    <div class="form-group row">
+      <div class="col-sm-10">
+        <button type="submit" class="btn btn-primary">Add</button>
+      </div>
+    </div>
+  </form>
+ 
+
+
+  <!-- Template Main JS File -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="addwine.js"></script>
+
+
+</body>
+
+</html>

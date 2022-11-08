@@ -1,0 +1,49 @@
+<div class="card" style="width: 40rem;">
+    <div class="card-body">
+        <h5 class="card-title"><%= wine.winery %></h5>
+        <h4 class="card-title"><%= wine.name %></h4>
+        <p class="card-text"><%= wine.region %>, <%= wine.country %></p>
+        <p class="card-text"><%= wine.rate %>/5</p>
+        <p class="card-text offers-count">Offers from: <%= wine.offers.length %> users</p>
+      </div>
+
+  </main>
+  <div class="col-md-6 mb-4">
+
+    <!--Content-->
+    <div class="p-4">
+      <p class="lead">
+       
+      </p>
+      <p class="lead font-weight-bold">Description</p>
+      <table class="table table-borderless">
+        <thead>
+          <tr>
+            <th scope="col"></th>
+            <th scope="col"></th>
+
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">Year</th>
+            <td><%= wine.year %></td>
+
+          </tr>
+          <tr>
+            <th scope="row">Grapes</th>
+            <td>Cabernet Sauvignon</td>
+
+          </tr>
+          <tr>
+            <th scope="row">Country</th>
+            <td colspan="2"><%= wine.country %></td>
+          </tr>
+        </tbody>
+      </table>
+      
+    </div>
+
+
+  </section>
+  </div>

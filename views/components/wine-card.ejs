@@ -1,8 +1,10 @@
 <div class="card" style="width: 40rem;">
+    <a href="/page/<%= post.id %>"></a>
     <div class="card-body">
-        <h5 class="card-title"><%= wine.winery %></h5>
-        <h4 class="card-title"><%= wine.name %></h4>
-        <p class="card-text"><%= wine.region %>, <%= wine.country %></p>
+        <h5 class="card-winery"><%= wine.winery %></h5>
+        <a href="/page/<%= post.id %>"><h4 class="card-title"><%= wine.name %></h4></a>
+        <p class="card-text"><%= wine.region %>, </p>
+        <p class="card-country"><%= wine.country %>, </p>
         <p class="card-text"><%= wine.rate %>/5</p>
         <p class="card-text offers-count">Offers from: <%= wine.offers.length %> users</p>
       </div>
