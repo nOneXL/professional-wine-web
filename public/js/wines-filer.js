@@ -20,7 +20,7 @@ $(document).ready(() => {
     $("#CountrySearch").on("keyup", function() {
         var value = reverseString(this.value)
         $(".wine-card").filter(function() {
-          $(this).toggle($(this).find(".card-country").text().indexOf(value) > -1)
+          $(this).toggle($(this).find(".card-country").text().toLowerCase().indexOf(value) > -1)
         });
       });
   });
