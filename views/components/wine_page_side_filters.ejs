@@ -1,46 +1,25 @@
 <link rel="stylesheet" href="/stylesheets/sidebar_wine_page.css">
 <aside class="sidebar">
+
         <p class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">Filters</p>
       <hr>
       <ul class="nav nav-pills flex-column mb-auto">
         <li class="filter-li">
-            <div class="dropdown">
-                <a class="btn btn-secondary dropdown-toggle drop-button" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                  Country
-                </a>
-              
-                <ul class="dropdown-menu">
-                <% [...new Set(wines.map(obj => obj.country))].forEach(country => { %>
-                    <li><a class="dropdown-item" href="#"><%= country %></a></li>
-                  <% }) %>
-                </ul>
-              </div>
-        </li>
-        <li class="filter-li">
-            <p></p>
-            <div class="dropdown">
-                <a class="btn btn-secondary dropdown-toggle drop-button" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                  Winery
-                </a>
-              
-                <ul class="dropdown-menu">
-                <% [...new Set(wines.map(obj => obj.winery))].forEach(winery => { %>
-                    <li><a class="dropdown-item" href="#"><%= winery %></a></li>
-                  <% }) %>
-                </ul>
-              </div>
-        </li>
-        <li class="filter-li">
-            <div class="dropdown">
-                <a class="btn btn-secondary dropdown-toggle drop-button" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                  Grapes
-                </a>
-              
-                <ul class="dropdown-menu">
-                <% [...new Set(wines.map(obj => obj.grapes).flatMap(num => num).flatMap(num => num.split(', ')))].forEach(grape => { %>
-                    <li><a class="dropdown-item" href="#"><%= grape %></a></li>
-                  <% }) %>
-                </ul>
-              </div>
-        </li>
+          <div class="col-sm-5">
+            <p>Search by name:</p>
+            <input class="form-control form-control-md" id="NameInput" type="text" placeholder="Title: ">
+        </div>
+
+        <div class="col-sm-5">
+          <p>Search by winey:</p>
+          <input class="form-control form-control-md" id="WineryInput" type="text" placeholder="Title: ">
+      </div>
+
+      <div class="col-sm-5">
+        <p>Search by country:</p>
+        <input class="form-control form-control-md" id="CountrySearch" type="text" placeholder="Title: ">
+    </div>
+        
+  
+     
   </aside>
