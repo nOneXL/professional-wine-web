@@ -1,75 +1,137 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-<div class="card" style="width: 40rem;">
+<main class="mt-5 pt-4">
+  <div class="container dark-grey-text mt-5">
+    <div class="row wow fadeIn">
+      <div class="card" style="width: 40rem;">
 
-  <% if(wine.type=="White wine"){%>
-    <img src="/images/white-wine.jpg" class="card-img-rigth" alt="image" width="220" height="300">
-<%}%>
-<% if(wine.type=="Red wine"){%>
-    <img src="/images/red-wine.jpg" class="card-img-rigth" alt="image" width="220" height="300">
-<%}%>
-<% if(wine.type=="Rose wine"){%>
-    <img src="/images/rose-wine.jpg" class="card-img-rigth" alt="image" width="220" height="300">
-<%}%>
-    
+        <% if(wine.type=="White wine" ){%>
+          <img src="/images/white-wine.jpg" class="card-img-rigth" alt="image" width="220" height="300">
+          <%}%>
+            <% if(wine.type=="Red wine" ){%>
+              <img src="/images/red-wine.jpg" class="card-img-rigth" alt="image" width="220" height="300">
+              <%}%>
+                <% if(wine.type=="Rose wine" ){%>
+                  <img src="/images/rose-wine.jpg" class="card-img-rigth" alt="image" width="220" height="300">
+                  <%}%>
 
-  </main>
-  <div class="col-md-6 mb-4">
 
-    <!--Content-->
-    <div class="p-4">
-      <p class="lead">
-       
-      </p>
-      
-      <table class="table table-borderless">
-        <thead>
-          <tr>
-            <th scope="col">Winery</th>
-            <th scope="col"><%= wine.winery %></th>
+</main>
+<div class="col-md-6 mb-4">
 
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <th scope="row">Country</th>
-            <td><%= wine.country %></td>
+  <!--Content-->
+  <div class="p-4">
+    <p class="lead">
 
-          </tr>
-          <tr>
-            <th scope="row">Region</th>
-            <td><%= wine.region %></td>
+    </p>
 
-          </tr>
-          <tr>
-            <th scope="row">Grapes</th>
-            <td>Cabernet Sauvignon</td>
+    <table class="table table-borderless">
+      <thead>
+        <tr>
+          <th scope="col">Winery</th>
+          <th scope="col">
+            <%= wine.winery %>
+          </th>
 
-          </tr>
-          <tr>
-            <th scope="row">Rate</th>
-            <td colspan="2"><%= wine.rate %>/5</td>
-          </tr>
-          <tr>
-            <th scope="row">Year</th>
-            <td><%= wine.year %></td>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th scope="row">Country</th>
+          <td>
+            <%= wine.country %>
+          </td>
 
-          </tr>
-          <tr>
-            <th scope="row">Grapes</th>
-            <td>Cabernet Sauvignon</td>
+        </tr>
+        <tr>
+          <th scope="row">Region</th>
+          <td>
+            <%= wine.region %>
+          </td>
 
-          </tr>
-          <tr>
-            <th scope="row">Country</th>
-            <td colspan="2"><%= wine.country %></td>
-          </tr>
-        </tbody>
-      </table>
-      
-    </div>
-    
+        </tr>
+        <tr>
+          <th scope="row">Grapes</th>
+          <td>Cabernet Sauvignon</td>
 
-  </section>
+        </tr>
+        <tr>
+          <th scope="row">Rate</th>
+          <td colspan="2">
+            <%= wine.rate %>/5
+          </td>
+        </tr>
+        <tr>
+          <th scope="row">Year</th>
+          <td>
+            <%= wine.year %>
+          </td>
+
+        </tr>
+        <tr>
+          <th scope="row">Grapes</th>
+          <td>Cabernet Sauvignon</td>
+
+        </tr>
+        <tr>
+          <th scope="row">Country</th>
+          <td colspan="2">
+            <%= wine.country %>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
   </div>
+  <div class="row d-flex justify-content-center wow fadeIn">
 
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col"></th>
+          <th scope="col">Name</th>
+          <th scope="col">Price</th>
+          <th scope="col">Link</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th scope="row">1</th>
+          <td>
+            <%= wine.offers.user %>
+          </td>
+          <td>
+            <%= wine.offers.price %>
+          </td>
+          <td><a class="btn btn-primary" href="<%= wine.offers.website%>" target="_blank" role="button">Link
+            </a>
+          </td>
+        </tr>
+        <tr>
+          <th scope="row">2</th>
+          <td>Shop1</td>
+          <td>Tel Aviv</td>
+          <td>100</td>
+          <td><a class="btn btn-primary" href="https://wine-pages.com/" target="_blank" role="button">Link
+            </a>
+          </td>
+        </tr>
+        <tr>
+          <th scope="row">3</th>
+          <td>Shop1</td>
+          <td>Tel Aviv</td>
+          <td>100</td>
+          <td><a class="btn btn-primary" href="https://wine-pages.com/" target="_blank" role="button">Link
+            </a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+
+    </section>
+  </div>
+</div>
+</div>
+</main>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
