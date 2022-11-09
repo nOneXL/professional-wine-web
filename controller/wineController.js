@@ -5,6 +5,7 @@ const create = async (req, res) => {
         name: req.body.name,
         country: req.body.country,
         winery: req.body.winery,
+        region: req.body.region,
         grapes: req.body.grapes,
         type: req.body.type,
         year: req.body.year,
