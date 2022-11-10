@@ -7,7 +7,9 @@ router.get('/page', wineController.getWinesPage);
 
 router.get('/new', wineController.getNewPage);
 
-router.get('/edit/:id', wineController.getEditPage)
+router.get('/edit/:id', wineController.getEditPage);
+
+router.get('/addoffer/:id', wineController.getNewOfferPage);
 
 router.get("/page/:id", wineController.getWinePage);
 
@@ -20,5 +22,7 @@ router.delete("/:id", wineController.remove);
 router.post("/", wineController.create);
 
 router.put("/:id", wineController.update);
+
+router.put("/addoffer/:id", wineController.addoffer);
 
 export { router as wineRouter };

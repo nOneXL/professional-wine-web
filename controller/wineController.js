@@ -1,4 +1,4 @@
-import {Wine} from '../models/wineModel.js'
+import { Wine } from '../models/wineModel.js'
 
 const create = async (req, res) => {
     const wine = await new Wine({
@@ -15,8 +15,8 @@ const create = async (req, res) => {
 
     try {
         await wine.save()
-        await res.redirect("/")
-    } catch(e) {
+        await res.redirect("/wines/page")
+    } catch (e) {
         console.log(e)
     }
 }
@@ -26,8 +26,8 @@ const getWinesPage = async (req, res) => {
         const wines = await Wine.find()
         await res.render('pages/wines/wines.ejs', {
             wines: wines
-          })
-    } catch(e) {
+        })
+    } catch (e) {
         console.log(e)
     }
 }
@@ -36,26 +36,36 @@ const getEditPage = async (req, res) => {
     try {
         const wine = await Wine.findById(req.params.id)
         await res.render('pages/wines/edit_wine.ejs', { wine: wine })
-    } catch(e) {
+    } catch (e) {
         console.log(e)
-    }   
-  }
+    }
+}
+
+const getNewOfferPage = async (req, res) => {
+    try {
+        const wine = await Wine.findById(req.params.id)
+        await res.render('pages/wines/addoffer.ejs', { wine: wine })
+    } catch (e) {
+        console.log(e)
+    }
+}
+
 
 const getNewPage = async (req, res) => {
     try {
         await res.render('pages/wines/addwine.ejs', { wine: new Wine() })
-    } catch(e) {
+    } catch (e) {
         console.log(e)
-    }   
-  }
+    }
+}
 
 const getWinePage = async (req, res) => {
     try {
-    const wine = await Wine.findById(req.params.id);
-    res.render('pages/wines/wine.ejs', {
-        wine: wine
-      });
-    } catch(e) {
+        const wine = await Wine.findById(req.params.id);
+        res.render('pages/wines/wine.ejs', {
+            wine: wine
+        });
+    } catch (e) {
         console.log(e);
     }
 }
@@ -64,7 +74,7 @@ const get = async (req, res) => {
     try {
         const wines = await Wine.find()
         await res.send(wines)
-    } catch(e) {
+    } catch (e) {
         console.log(e)
     }
 }
@@ -73,7 +83,7 @@ const getById = async (req, res) => {
     try {
         const wine = await Wine.findById(req.params.id)
         await res.send(wine)
-    } catch(e) {
+    } catch (e) {
         console.log(e)
     }
 }
@@ -83,15 +93,41 @@ const update = async (req, res) => {
         const wine = await Wine.findById(req.params.id)
         let new_wine = await wine
         new_wine.name = req.body.name,
-        new_wine.country = req.body.country,
-        new_wine.winery = req.body.winery,
-        new_wine.grapes = req.body.grapes,
-        new_wine.type = req.body.type,
-        new_wine.year = req.body.year,
-        new_wine.rate = req.body.rate
+            new_wine.country = req.body.country,
+            new_wine.winery = req.body.winery,
+            new_wine.grapes = req.body.grapes,
+            new_wine.type = req.body.type,
+            new_wine.year = req.body.year,
+            new_wine.rate = req.body.rate
+            
+        await new_wine.save()
+        await res.redirect('/wines/page')
+    } catch (e) {
+        console.log(e)
+    }
+}
+
+const addoffer = async (req, res) => {
+    try {
+        const wine = await Wine.findById(req.params.id)
+        let new_wine = await wine
+        let user1 = req.body.user;
+        let price1 = req.body.price;
+        let website1 = req.body.website;
+
+        new_wine.name = req.body.name,
+            new_wine.country = req.body.country,
+            new_wine.winery = req.body.winery,
+            new_wine.grapes = req.body.grapes,
+            new_wine.type = req.body.type,
+            new_wine.year = req.body.year,
+            new_wine.rate = req.body.rate,
+            
+            new_wine.offers.push({user: user1, price: price1,website: website1})
+          
         await new_wine.save()
         await res.redirect('/')
-    } catch(e) {
+    } catch (e) {
         console.log(e)
     }
 }
@@ -99,19 +135,21 @@ const update = async (req, res) => {
 const remove = async (req, res) => {
     try {
         await Wine.findByIdAndDelete(req.params.id)
-        await res.redirect('/')
-    } catch(e) {
+        await res.redirect('/wines/page')
+    } catch (e) {
         console.log(e)
     }
 }
 
-export {    
+export {
     create,
     get,
     getById,
     update,
     remove,
     getWinesPage,
+    getNewOfferPage,
+    addoffer,
     getEditPage,
     getNewPage,
     getWinePage

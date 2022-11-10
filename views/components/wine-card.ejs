@@ -19,5 +19,8 @@
         <p class="card-country"><%= wine.country %>, </p>
         <p class="card-text"><%= wine.rate %>/5</p>
         <p class="card-text offers-count">Offers from: <%= wine.offers.length %> users</p>
+        <form action="/wines/<%= wine.id %>?_method=DELETE" method="POST">
+            <button type="submit" class="btn btn-danger function-button">Delete</button>
+          </form>
       </div>
   </div>
