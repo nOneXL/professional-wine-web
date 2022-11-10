@@ -1,0 +1,28 @@
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col"></th>
+      <th scope="col">Name</th>
+      <th scope="col">Price</th>
+      <th scope="col">Link</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <% for(var i=0; i < wine.offers.length; i++) { %>
+
+        <th scope="row">1</th>
+        <td>
+          <%= wine.offers[i].user %>
+        </td>
+        <td>
+          <%= wine.offers[i].price %>
+        </td>
+        <td><a class="btn btn-primary" href="<%= wine.offers[i].website%>" target="_blank" role="button">Link</a>
+        </td>
+    </tr>
+    <% }} %>
+  </tbody>
+</table>

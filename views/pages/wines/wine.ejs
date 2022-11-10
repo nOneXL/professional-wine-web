@@ -1,25 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
     <link href="/stylesheets/article.css" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
-    <script src="https://code.jquery.com/jquery-3.6.1.js" integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
+        crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.1.js"
+        integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script>
     <script src="/js/blog-card-filter-options.js"></script>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Wine 🍷 Not?</title>
 </head>
+
 <body>
     <div>
         <%- include('../../components/navbar.ejs'); %>
     </div>
-<div>
-    <header>
-        <%- include('../../components/wine_page.ejs'); %>
-        <%- include('../../components/offers.ejs'); %>
-  </div>
-  <a href="/wines/page" class="btn btn-outline-primary back-button">return</a>
-</div>
+    <div>
+        <header>
+            <%- include('../../components/wine_page.ejs'); %>
+                <% if(wine.offers.length !=0) { %>
+                    <%- include('../../components/offers_table.ejs', {offers: wine.offers}); %>
+                        <% } %>
+
+
+    </div>
+    <a href="/wines/page" class="btn btn-outline-primary back-button">return</a>
+    <a href="/wines/edit/<%= wine.id %>" class="btn btn-warning function-button">edit</a>
+    <a href="/wines/addoffer/<%= wine.id %>" class="btn btn-warning function-button">+</a>
+
+    </div>
 </body>
