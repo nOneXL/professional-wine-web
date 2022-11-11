@@ -128,7 +128,7 @@ const addoffer = async (req, res) => {
             new_wine.offers.push({ user: user1, price: price1, website: website1 })
 
         await new_wine.save()
-        await res.redirect('/')
+        await res.redirect('/wines/page')
     } catch (e) {
         console.log(e)
     }
