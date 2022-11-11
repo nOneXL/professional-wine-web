@@ -21,12 +21,13 @@
     <div>
         <%- include('../../components/navbar.ejs'); %>
     </div>
+
     <div>
+
         <header>
             <%- include('../../components/wine_page.ejs'); %>
                 <% if(wine.offers.length !=0) { %>
                     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-
                     <table class="table">
                         <thead>
                             <tr>
@@ -40,7 +41,9 @@
 
                             <% for(var i=0; i < wine.offers.length; i++) { %>
                                 <tr>
-                                    <th scope="row"><%= i+1 %></th>
+                                    <th scope="row">
+                                        <%= i+1 %>
+                                    </th>
                                     <td>
                                         <%= wine.offers[i].user %>
                                     </td>
@@ -55,6 +58,58 @@
                         </tbody>
                     </table>
                     <% } %>
+
+    </div>
+    <div>
+        <div>
+            <canvas id="myChart"></canvas>
+        </div>
+        <div>
+            <canvas id="myChart"></canvas>
+        </div>
+
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+        <% if(wine.offers.length !=0) { %>
+
+            <script>
+
+                var labels = [];
+                var data1 = [];
+
+            </script>
+            <% for(var i=0; i < wine.offers.length; i++) { %>
+                <script>
+                    labels.push('<%= wine.offers[i].user %>')
+                    data1.push('<%= wine.offers[i].price %>')
+                </script>
+                <% } %>
+                    <script>
+                        const data = {
+                            labels: labels,
+                            datasets: [{
+                                label: 'Prices',
+                                backgroundColor: 'rgb(255, 99, 132)',
+                                borderColor: 'rgb(255, 99, 132)',
+                                data: data1
+                            }]
+                        };
+
+                        const config = {
+                            type: 'bar',
+                            data: data,
+                            options: {}
+                        };
+                    </script>
+                    <% } %>
+
+
+                        <script>
+                            const myChart = new Chart(
+                                document.getElementById('myChart'),
+                                config
+                            );
+                        </script>
 
 
     </div>
