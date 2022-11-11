@@ -93,13 +93,14 @@ const update = async (req, res) => {
         const wine = await Wine.findById(req.params.id)
         let new_wine = await wine
         new_wine.name = req.body.name,
-            new_wine.country = req.body.country,
-            new_wine.winery = req.body.winery,
-            new_wine.grapes = req.body.grapes,
-            new_wine.type = req.body.type,
-            new_wine.year = req.body.year,
-            new_wine.rate = req.body.rate
-            
+        new_wine.country = req.body.country,
+        new_wine.winery = req.body.winery,
+        new_wine.grapes = req.body.grapes,
+        new_wine.type = req.body.type,
+        new_wine.year = req.body.year,
+        new_wine.rate = req.body.rate
+
+
         await new_wine.save()
         await res.redirect('/wines/page')
     } catch (e) {
@@ -116,15 +117,16 @@ const addoffer = async (req, res) => {
         let website1 = req.body.website;
 
         new_wine.name = req.body.name,
-            new_wine.country = req.body.country,
-            new_wine.winery = req.body.winery,
-            new_wine.grapes = req.body.grapes,
-            new_wine.type = req.body.type,
-            new_wine.year = req.body.year,
-            new_wine.rate = req.body.rate,
-            
-            new_wine.offers.push({user: user1, price: price1,website: website1})
-          
+        new_wine.country = req.body.country,
+        new_wine.winery = req.body.winery,
+        new_wine.grapes = req.body.grapes,
+        new_wine.type = req.body.type,
+        new_wine.year = req.body.year,
+        new_wine.rate = req.body.rate,
+
+
+            new_wine.offers.push({ user: user1, price: price1, website: website1 })
+
         await new_wine.save()
         await res.redirect('/')
     } catch (e) {
