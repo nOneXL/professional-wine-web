@@ -19,6 +19,15 @@ const create = async (req, res) => {
     }
 }
 
+const getNewPage = async (req, res) => {
+    try {
+        await res.render('pages/winery/add_winery.ejs')
+    } catch (e) {
+        console.log(e)
+    }
+}
+
+
 const get = async (req, res) => {
     try {
         const wineries = await Winery.find()
@@ -86,6 +95,7 @@ export {
     get,
     getmap,
     getwineries,
+    getNewPage,
     getById,
     update,
     remove
