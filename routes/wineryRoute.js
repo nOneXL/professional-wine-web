@@ -5,6 +5,10 @@ var router = express.Router();
 
 router.get('/', WineryController.get);
 
+router.get('/map', WineryController.getmap);
+
+router.get('/wineries', WineryController.getwineries);
+
 router.get("/:id", WineryController.getById);
 
 router.delete("/:id", WineryController.remove);
