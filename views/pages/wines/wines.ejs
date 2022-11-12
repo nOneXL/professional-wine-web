@@ -17,6 +17,7 @@
 </div>
 <a href="/wines/new" class="btn btn-success">New</a>
 <div class="wine-page">
+
     <%- include('../../components/wine_page_side_filters.ejs', {wines: wines}); %>
   <div class="wine-cards">
     <% for(var i=0; i < wines.length; i++) { %>

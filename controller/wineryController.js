@@ -38,8 +38,9 @@ const getmap = async (req, res) => {
 
 const getwineries = async (req, res) => {
     try {
+        const winery = await Winery.find()
         await res.render('pages/winery/wineries.ejs', {
-            winery: Winery
+            winery: winery
         })
     } catch (e) {
         console.log(e)
