@@ -8,8 +8,9 @@
     position: relative;
     width:20vh;
     height: 100vh;
-    background-color:white;
-    border:solid rgb(0, 0, 0);
+    background-color:rgba(233, 228, 228, 0.69);
+    
+    border-radius:15px
 }
 
 .filter-ul {

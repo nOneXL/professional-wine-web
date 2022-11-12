@@ -28,6 +28,24 @@ const get = async (req, res) => {
     }
 }
 
+const getmap = async (req, res) => {
+    try {
+        await res.render('pages/winery/map.ejs')
+    } catch (e) {
+        console.log(e)
+    }
+}
+
+const getwineries = async (req, res) => {
+    try {
+        await res.render('pages/winery/wineries.ejs', {
+            winery: Winery
+        })
+    } catch (e) {
+        console.log(e)
+    }
+}
+
 const getById = async (req, res) => {
     try {
         const winery = await Winery.findById(req.params.id)
@@ -65,6 +83,8 @@ const remove = async (req, res) => {
 export {    
     create,
     get,
+    getmap,
+    getwineries,
     getById,
     update,
     remove
