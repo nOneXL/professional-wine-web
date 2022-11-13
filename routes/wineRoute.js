@@ -19,6 +19,8 @@ router.get("/:id", wineController.getById)
 
 router.delete("/:id", wineController.remove);
 
+router.delete("/removeoffer/:id&:num", wineController.removeoffer);
+
 router.post("/", wineController.create);
 
 router.put("/:id", wineController.update);
