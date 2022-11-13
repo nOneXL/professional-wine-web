@@ -13,7 +13,7 @@ const create = async (req, res) => {
 
     try {
         await winery.save()
-        await res.redirect("/")
+        await res.redirect("/winery/wineries")
     } catch(e) {
         console.log(e)
     }
@@ -75,7 +75,7 @@ const update = async (req, res) => {
         new_winery.coordinates.lat = req.body.lat
         new_winery.website = req.body.website
         await new_winery.save()
-        await res.redirect('/')
+        await res.redirect('/winery/wineries')
     } catch(e) {
         console.log(e)
     }
@@ -84,7 +84,7 @@ const update = async (req, res) => {
 const remove = async (req, res) => {
     try {
         await Winery.findByIdAndDelete(req.params.id)
-        await res.redirect('/')
+        await res.redirect('/winery/wineries')
     } catch(e) {
         console.log(e)
     }
