@@ -40,10 +40,12 @@ const wineSchema = new mongoose.Schema({
     },
     offers: [{
         user: {
-            type: String
+            type: String,
+            required: [true, 'User required in offers!']
         },
         price: {
             type: mongoose.Types.Decimal128,
+            required: [true, 'Price required in offers!'],
             validate: {
                 validator: (v) => (v >= 0),
                 message: props => `${props.value} is not a valid price!`
@@ -51,6 +53,7 @@ const wineSchema = new mongoose.Schema({
         },
         website: {
             type: String,
+            required: [true, 'Website required in offers!'],
             validate: {
                 validator: function(v) {
                     const reHttps = new RegExp('https://');
