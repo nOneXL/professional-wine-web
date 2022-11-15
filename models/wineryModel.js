@@ -15,7 +15,7 @@ const winerySchema = new mongoose.Schema({
             required: [true, 'Winery longitude required!'],
             validate: {
                 validator: function(v) {
-                  return ((v >= -180) && (v <= 180) ? true : false);
+                    return ((v >= -180) && (v <= 180) ? true : false);
                 },
                 message: props => `${props.value} is not a valid longitude!`
               }
@@ -25,7 +25,7 @@ const winerySchema = new mongoose.Schema({
             required: [true, 'Winery latitude required!'],
             validate: {
                 validator: function(v) {
-                  return ((v >= -90) && (v <= 90) ? true : false);
+                    return ((v >= -90) && (v <= 90) ? true : false);
                 },
                 message: props => `${props.value} is not a valid latitude!`
               }
@@ -33,7 +33,15 @@ const winerySchema = new mongoose.Schema({
     },
     website: {
         type: String,
-        required: [true, 'Winery website required!']
+        required: [true, 'Winery website required!'],
+        validate: {
+            validator: function(v) {
+                const reHttps = new RegExp('https://');
+                const reCom = new RegExp('.com');
+                return (v.match(reHttps)) && (v.match(reCom));
+            },
+            message: props => `${props.value} is not a valid website!`
+          }
     }
 })
 
