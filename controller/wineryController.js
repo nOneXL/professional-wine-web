@@ -95,7 +95,9 @@ export {
     get,
     getmap,
     getwineries,
+
     getNewPage,
+
     getById,
     update,
     remove

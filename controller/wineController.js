@@ -102,9 +102,11 @@ const update = async (req, res) => {
 
 
         await new_wine.save()
+
         await res.render('pages/wines/wine.ejs', {
             wine: wine
         });
+
     } catch (e) {
         console.log(e)
     }
@@ -127,7 +129,9 @@ const addoffer = async (req, res) => {
         new_wine.rate = wine.rate,
 
 
+
             new_wine.offers.push({ user: user1, price: price1, website: website1 })
+
 
         await new_wine.save()
         await res.render('pages/wines/wine.ejs', {
@@ -148,6 +152,7 @@ const removeoffer = async (req, res) => {
         await res.render('pages/wines/wine.ejs', {
             wine: new_wine
         });
+
     } catch (e) {
         console.log(e)
     }

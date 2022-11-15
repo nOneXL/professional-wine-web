@@ -6,13 +6,17 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
   <link rel="stylesheet" href="/stylesheets/newBlog.css">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
   <title>Edit Wine</title>
+
 </head>
 <body>
   <div class="container">
     <h1 class="mb-4 title">Edit wine</h1>
     <form action="/wines/<%= wine.id %>?_method=PUT" method="POST">
+
       <%- include('../../components/edit-wine-form.ejs') %>
+
     </form>
   </div>
 </body>
