@@ -102,7 +102,11 @@ const update = async (req, res) => {
 
 
         await new_wine.save()
-        await res.redirect('/wines/page')
+
+        await res.render('pages/wines/wine.ejs', {
+            wine: wine
+        });
+
     } catch (e) {
         console.log(e)
     }
@@ -116,19 +120,39 @@ const addoffer = async (req, res) => {
         let price1 = req.body.price;
         let website1 = req.body.website;
 
-        new_wine.name = req.body.name,
-        new_wine.country = req.body.country,
-        new_wine.winery = req.body.winery,
-        new_wine.grapes = req.body.grapes,
-        new_wine.type = req.body.type,
-        new_wine.year = req.body.year,
-        new_wine.rate = req.body.rate,
+        new_wine.name = wine.name,
+        new_wine.country = wine.country,
+        new_wine.winery = wine.winery,
+        new_wine.grapes = wine.grapes,
+        new_wine.type = wine.type,
+        new_wine.year = wine.year,
+        new_wine.rate = wine.rate,
+
 
 
             new_wine.offers.push({ user: user1, price: price1, website: website1 })
 
+
         await new_wine.save()
-        await res.redirect('/wines/page')
+        await res.render('pages/wines/wine.ejs', {
+            wine: wine
+        });
+    } catch (e) {
+        console.log(e)
+    }
+}
+const removeoffer = async (req, res) => {
+    try {
+        const wine = await Wine.findById(req.params.id)
+        let new_wine = await wine    
+        let start=req.params.num;
+        new_wine.offers.splice(start,1);      
+        
+        await new_wine.save()
+        await res.render('pages/wines/wine.ejs', {
+            wine: new_wine
+        });
+
     } catch (e) {
         console.log(e)
     }
@@ -149,6 +173,7 @@ export {
     getById,
     update,
     remove,
+    removeoffer,
     getWinesPage,
     getNewOfferPage,
     addoffer,

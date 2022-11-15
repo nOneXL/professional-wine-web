@@ -5,6 +5,9 @@ var router = express.Router();
 
 router.get('/', WineryController.get);
 
+
+router.get("/new", WineryController.getNewPage);
+
 router.get('/map', WineryController.getmap);
 
 router.get('/wineries', WineryController.getwineries);

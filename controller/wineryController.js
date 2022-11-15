@@ -13,11 +13,20 @@ const create = async (req, res) => {
 
     try {
         await winery.save()
-        await res.redirect("/")
+        await res.redirect("/winery/wineries")
     } catch(e) {
         console.log(e)
     }
 }
+
+const getNewPage = async (req, res) => {
+    try {
+        await res.render('pages/winery/add_winery.ejs')
+    } catch (e) {
+        console.log(e)
+    }
+}
+
 
 const get = async (req, res) => {
     try {
@@ -66,7 +75,7 @@ const update = async (req, res) => {
         new_winery.coordinates.lat = req.body.lat
         new_winery.website = req.body.website
         await new_winery.save()
-        await res.redirect('/')
+        await res.redirect('/winery/wineries')
     } catch(e) {
         console.log(e)
     }
@@ -75,7 +84,7 @@ const update = async (req, res) => {
 const remove = async (req, res) => {
     try {
         await Winery.findByIdAndDelete(req.params.id)
-        await res.redirect('/')
+        await res.redirect('/winery/wineries')
     } catch(e) {
         console.log(e)
     }
@@ -86,6 +95,9 @@ export {
     get,
     getmap,
     getwineries,
+
+    getNewPage,
+
     getById,
     update,
     remove
