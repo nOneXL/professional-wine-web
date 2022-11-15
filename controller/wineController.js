@@ -1,7 +1,7 @@
 import { Wine } from '../models/wineModel.js'
 
-const create = async (req, res) => {
-    const wine = await new Wine({
+const create = async (req, res) => {  
+    const wine = await new Wine({   
         name: req.body.name,
         country: req.body.country,
         winery: req.body.winery,

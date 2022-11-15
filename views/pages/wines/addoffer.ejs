@@ -13,9 +13,11 @@
 <body>
   <div class="container">
     <h1 class="mb-4 title">add offer</h1>
-    <form action="/wines/addoffer/<%= wine.id %>?_method=PUT" method="POST">
+    <form action="/wines/addoffer/<%= wine.id %>?_method=PUT" method="post" id ="addOffer">
       <%- include('../../components/add_offer.ejs') %>
     </form>
   </div>
+
+  <script src = "/js/addOffer.js"></script>
 </body>
 </html>
