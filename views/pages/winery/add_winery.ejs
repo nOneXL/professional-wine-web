@@ -11,9 +11,10 @@
 <body>
   <div class="container">
     <h1 class="mb-4 title">Add winery</h1>
-    <form action="/winery" method="POST">
+    <form action="/winery" method="POST" onsubmit="myFunction()">
         <%- include('../../components/add_winery_form.ejs') %>
     </form>
   </div>
+  <script src = "/js/addWinery.js"></script>
 </body>
 </html>
