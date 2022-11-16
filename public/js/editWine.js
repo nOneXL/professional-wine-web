@@ -1,12 +1,9 @@
 $(() => {
-
-    document.getElementById("addWine").onsubmit = function (evant) { myFunction(evant) };
+    
+    document.getElementById("editWine").onsubmit = function (evant) { myFunction(evant) };
 
     function myFunction (evant) {
-            var gr = [];
-            var arr = document.querySelectorAll(".form-check-input");
-            for (let i = 0; i < 10; i++) { if (arr[i].checked) { gr.push(arr[i].id) } }
-           
+         
         var error_massege="";
         var name = document.getElementById('name').value;
         var nameRGEX = /^[a-z A-Z]+$/;

@@ -103,19 +103,19 @@
         <legend class="col-form-label col-sm-2">Type</legend>
         <div class="col-sm-10">
             <div class="form-check">
-                <input class="form-check-input" type="radio" name="type" id="type" value="Red wine">
+                <input class="form-check-input" type="radio" name="type" id="type" value="Red wine" <% if(wine.type=="Red wine"){%> checked <%}%>>
                 <label class="form-check-label" for="gridRadios1">
                     Red
                 </label>
             </div>
             <div class="form-check">
-                <input class="form-check-input" type="radio" name="type" id="type" value="White wine">
+                <input class="form-check-input" type="radio" name="type" id="type" value="White wine" <% if(wine.type=="White wine"){%> checked <%}%>>
                 <label class="form-check-label" for="gridRadios2">
                     White
                 </label>
             </div>
             <div class="form-check disabled">
-                <input class="form-check-input" type="radio" name="type" id="type" value="Rose wine">
+                <input class="form-check-input" type="radio" name="type" id="type" value="Rose wine"<% if(wine.type=="Rose wine"){%> checked <%}%>>
                 <label class="form-check-label" for="gridRadios3">
                     Rose
                 </label>

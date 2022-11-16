@@ -13,11 +13,13 @@
 <body>
   <div class="container">
     <h1 class="mb-4 title">Edit wine</h1>
-    <form action="/wines/<%= wine.id %>?_method=PUT" method="POST">
+    <form action="/wines/<%= wine.id %>?_method=PUT" method="POST" id="editWine">
 
       <%- include('../../components/edit-wine-form.ejs') %>
 
     </form>
+    
   </div>
+  <script src = "/public/js/editWine.js"></script>
 </body>
 </html>
