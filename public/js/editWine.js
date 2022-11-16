@@ -1,15 +1,13 @@
-$(() => {
-    
-    document.getElementById("editWine").onsubmit = function (evant) { myFunction(evant) };
 
-    function myFunction (evant) {
-         
+
+    function myFunction () {
+
         var error_massege="";
         var name = document.getElementById('name').value;
-        var nameRGEX = /^[a-z A-Z]+$/;
+        var nameRGEX = /^[a-z A-Z 0-9]+$/;
         var nameResult = nameRGEX.test(name);
         if (nameResult == false) {
-            error_massege+="name: allow letters only / Can't be empty\n";
+            error_massege+="name: allow letters or numbers only / Can't be empty\n";
             event.preventDefault();
             event.stopPropagation();
           
@@ -101,4 +99,3 @@ $(() => {
 
     }
 
-});

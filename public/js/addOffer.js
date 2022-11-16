@@ -1,9 +1,6 @@
-$(() => {
 
-    document.getElementById("addOffer").onsubmit = function (evant) { myFunction(evant) };
-
-  
-    function myFunction (evant) {
+    function myFunction() {
+        var error_massege="";
         var user = document.getElementById('user').value;
         var userRGEX = /^[a-z A-Z]+$/;
         var userResult = userRGEX.test(user);
@@ -41,8 +38,5 @@ $(() => {
         
         if (error_massege)
             alert(error_massege);
-
-
     }
 
-});

@@ -11,9 +11,11 @@
 <body>
   <div class="container">
     <h1 class="mb-4 title">Create new Article</h1>
-    <form action="/blog" method="POST">
+    <form action="/blog" method="POST" id="addblog">
       <%- include('../../components/form_fields.ejs') %>
     </form>
   </div>
+  <script src = "/js/addBlog.js"></script>
 </body>
+
 </html>
