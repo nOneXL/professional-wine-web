@@ -1,8 +1,11 @@
 .container{
     display: flex;
-  align-items: center;
+    align-items: center;
 }
 
 .textbox{
-  border-color: blue;
+    background-color:rgba(233, 228, 228, 0.69);
+    border-radius:15px;
+    display: flex;
+    align-items: center;
 }
