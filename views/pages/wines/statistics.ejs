@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
+    crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.6.1.js" integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI="
+    crossorigin="anonymous"></script>
+  <script src="/js/wine-filter.js"></script>
+  <link type="text/css" rel="stylesheet" href="/stylesheets/blog.css">
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wine 🍷 Not?</title>
+</head>
+
+<body>
+  <div>
+    <%- include("../../components/navbar2.ejs"); %>
+
+  </div>
+
+  <div class="myChart">
+    <canvas id="myChart2" class="myChart"></canvas>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+  <script>
+
+    var data1 = [0, 0, 0];
+    var labels = ['Red', 'white', 'Rose'];
+
+  </script>
+  <% for(var i=0; i < wines.length; i++) { %>
+    <% if(wines[i].type=="White wine" ){%>
+      <script>
+        data1[1]++; 
+      </script>
+      <%}%>
+        <% if(wines[i].type=="Red wine" ){%>
+          <script>
+            data1[0]++; 
+          </script>
+          <%}%>
+            <% if(wines[i].type=="Rose wine" ){%>
+              <script>
+                data1[2]++; 
+              </script>
+              <%}%>
+
+                <% } %>
+                  <script>
+                    const data = {
+                      labels: labels,
+                      datasets: [{
+                        backgroundColor: [
+                          'rgb(163,24,24)',
+                          'rgb(250,214,165)',
+                          'rgb(255, 185, 185)'
+                        ],
+                        data: data1
+                      }]
+                    };
+
+                    const config2 = {
+                      type: 'doughnut',
+                      data: data,
+                      options: {}
+                    };
+                  </script>
+
+
+
+                  <script>
+                    const myChart2 = new Chart(
+                      document.getElementById('myChart2'),
+                      config2
+                    );
+                  </script>
+
+</body>
+
+
+</html>

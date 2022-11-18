@@ -27,3 +27,8 @@ body {
     margin-right: auto
 
     }
+
+.myChart{
+    height: 600px;
+    width: 600px;
+}
