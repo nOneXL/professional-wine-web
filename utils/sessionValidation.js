@@ -12,4 +12,3 @@ export const checkNotAuthenticated = function (req, res, next) {
   }
   next();
 };
-

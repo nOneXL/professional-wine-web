@@ -70,7 +70,6 @@ const getStatisticsPage = async (req, res) => {
   }
 };
 
-
 const getEditPage = async (req, res) => {
   try {
     const wine = await Wine.findById(req.params.id);
@@ -197,8 +196,6 @@ const remove = async (req, res) => {
     console.log(e);
   }
 };
-
-
 
 export {
   create,

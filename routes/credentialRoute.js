@@ -5,8 +5,7 @@ import passport from "passport";
 const credentialRouter = express.Router();
 
 credentialRouter.get("/login", (req, res) => {
-    console.log(req.isAuthenticated())
-    res.render("login.pug");
+  res.render("login.pug");
 });
 
 credentialRouter.get("/register", (req, res) => {
@@ -24,6 +23,5 @@ credentialRouter.post(
   })
 );
 
-credentialRouter.post("/test", credentialController.test);
 
 export default credentialRouter;

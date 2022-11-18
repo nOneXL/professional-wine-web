@@ -1,5 +1,4 @@
 import * as bcrypt from "bcrypt";
-import "jsonwebtoken";
 import mongoose from "mongoose";
 import mongooseUniqueValidator from "mongoose-unique-validator";
 import validator from "validator";

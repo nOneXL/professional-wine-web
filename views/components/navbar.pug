@@ -1,33 +1,47 @@
-link(href="/stylesheets/navbar.css" rel="stylesheet")
+link(href="/stylesheets/navbar.css", rel="stylesheet")
 nav.navbar.navbar-expand-lg.bg-light
-    .container-fluid
-        a.navbar-brand(href='/')
-            canvas#myCanvas(width='200', height='50')
-        button.navbar-toggler(type='button', data-bs-toggle='collapse', data-bs-target='#navbarSupportedContent', aria-controls='navbarSupportedContent', aria-expanded='false', aria-label='Toggle navigation')
-            span.navbar-toggler-icon
-        #navbarSupportedContent.collapse.navbar-collapse
-            ul.navbar-nav.me-auto.mb-2.mb-lg-0
-                li
-                    img(src='/images/bottle.png', alt='image', width='25', height='25')
-                li.nav-item
-                    a.nav-link(href='/wines/page') Wines
-                li
-                    img(src='/images/grapes.jpg', alt='image', width='25', height='25')
-                li.dropdown.nav-link.winery
-                    span Winery
-                    |
-                    i.bi.bi-chevron-down
-                    ul
-                        a.nav-link(href='/winery/wineries') Wineries
-                        a.nav-link(href='/winery/map') Map
-                li
-                    img(src='/images/blog.png', alt='image', width='20', height='20')
-                li.nav-item
-                    a.nav-link(href='/blog/page') Blog
-                li.nav-item
-                    a.nav-link(href='/users/login') Login
+  .container-fluid
+    a.navbar-brand(href="/")
+      canvas#myCanvas(width="200", height="50")
+    button.navbar-toggler(
+      type="button",
+      data-bs-toggle="collapse",
+      data-bs-target="#navbarSupportedContent",
+      aria-controls="navbarSupportedContent",
+      aria-expanded="false",
+      aria-label="Toggle navigation"
+    )
+      span.navbar-toggler-icon
+    #navbarSupportedContent.collapse.navbar-collapse
+      ul.navbar-nav.me-auto.mb-2.mb-lg-0.gap-2
+        li
+          img(
+            src="/images/wine-bottle.svg",
+            alt="image",
+            width="25",
+            height="25"
+          )
+        li.nav-item
+          a.nav-link(href="/wines/page") Wines
+        li
+          img(src="/images/grapes.svg", alt="image", width="25", height="25")
+        li.dropdown.nav-link.winery
+          span Winery
+          |
+          i.bi.bi-chevron-down
+          ul
+            a.nav-link(href="/winery/wineries") Wineries
+            a.nav-link(href="/winery/map") Map
+        li
+          img(src="/images/blog.svg", alt="image", width="20", height="20")
+        li.nav-item
+          a.nav-link(href="/blog/page") Blog
+        li.nav-item
+          a.nav-link(href="/users/login") Login
+        li.nav-item
+          a.nav-link(href="/logout", methods="GET") Logout
 script.
-    const c = document.getElementById("myCanvas");
-    let ctx = c.getContext("2d");
-    ctx.font = "30px Arial";
-    ctx.fillText("Wine 🍷 Not?", 0, 40);
+  const c = document.getElementById("myCanvas");
+  let ctx = c.getContext("2d");
+  ctx.font = "30px Arial";
+  ctx.fillText("Wine 🍷 Not?", 0, 40);

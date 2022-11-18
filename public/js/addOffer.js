@@ -25,9 +25,10 @@ function myFunction() {
   }
 
   var website = document.getElementById("website").value;
-  var websiteRGEX = /[(http(s)?):\/\/(www\.)?a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/;
+  var websiteRGEX =
+    /[(http(s)?):\/\/(www\.)?a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/;
   var websiteResult = websiteRGEX.test(website);
-  if (websiteResult == false) {
+  if (websiteResult === false) {
     error_massege += "website: allow avalid URL only / Can't be empty\n";
     event.preventDefault();
     event.stopPropagation();
