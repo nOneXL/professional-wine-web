@@ -64,7 +64,7 @@ function createPinList() {
         var output = [];
 
         for (var i = 0; i < data.length; i++) {
-            output.push("<a href="javascript:void(0);" onclick="showInfoboxByGridKey(", data[i].gridKey, ");">");
+            output.push(`<a href="javascript:void(0);" onclick="showInfoboxByGridKey(", data[i].gridKey, ");">`);
             output.push(data[i].getTitle(), "</a><br/>");
         }
     }
@@ -78,7 +78,7 @@ function showInfoboxByGridKey(gridKey) {
 function popInfobox(pin) {
     var description = [];
     if (pin.containedPushpins) {
-        description.push("<div style="max-height:75px;overflow-y:auto;"><ul>");
+        description.push(`<div style="max-height:75px;overflow-y:auto;"><ul>`);
         for (var i = 0; i < pin.containedPushpins.length; i++) {
             description.push("<li>", pin.containedPushpins[i].getTitle(), "</li>");
         }

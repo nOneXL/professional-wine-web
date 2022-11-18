@@ -48,6 +48,13 @@ function myFunction() {
     event.stopPropagation();
   }
 
+  var atLeastOnTypeChecked = Math.max(...Array.from($('.grapes')).map(elem => elem.checked))
+  if (atLeastOnTypeChecked == false) {
+    error_massege += "grapes: Check at least one grape\n";
+    event.preventDefault();
+    event.stopPropagation();
+  }
+
   var Year = document.getElementById("year").value;
   var YearRGEX = /^\d+$/;
   var YearResult = YearRGEX.test(Year);

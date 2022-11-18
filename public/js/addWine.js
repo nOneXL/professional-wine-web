@@ -4,14 +4,6 @@ $(() => {
   };
 
   function myFunction() {
-    let gr = [];
-    const arr = document.querySelectorAll(".form-check-input");
-    for (let i = 0; i < 10; i++) {
-      if (arr[i].checked) {
-        gr.push(arr[i].id);
-      }
-    }
-
     let error_massege = "";
     const name = document.getElementById("name").value;
     const nameRGEX = /^[a-z A-Z 0-9]+$/;
@@ -57,6 +49,13 @@ $(() => {
     var wineryResult = wineryRGEX.test(winery);
     if (wineryResult == false) {
       error_massege += "winery: allow letters only / Can't be empty\n";
+      event.preventDefault();
+      event.stopPropagation();
+    }
+
+    var atLeastOnTypeChecked = Math.max(...Array.from($('.grapes')).map(elem => elem.checked))
+    if (atLeastOnTypeChecked == false) {
+      error_massege += "grapes: Check at least one grape\n";
       event.preventDefault();
       event.stopPropagation();
     }
