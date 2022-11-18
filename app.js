@@ -56,7 +56,7 @@ app.use("/blog", checkAuthenticated, blogRouter);
 app.use("/winery", wineryRouter);
 app.use("/wines", wineRouter);
 app.use("/country", countryRouter);
-app.delete("/logout", (req, res, next) => {
+app.get("/logout", (req, res, next) => {
   req.logout((err) => {
     if (err) return next(err);
   });

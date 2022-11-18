@@ -4,7 +4,6 @@ import { Strategy as LocalStrategy } from "passport-local";
 import { Credential } from "../models/Credential.js";
 
 function initializePassport(passport) {
-
   const authenticateUser = async (username, password, done) => {
     const user = await Credential.findOne({ username: username });
     if (user == null) {
@@ -22,15 +21,14 @@ function initializePassport(passport) {
     }
   };
 
-
   passport.use(
     new LocalStrategy({ usernameField: "username" }, authenticateUser)
   );
   passport.serializeUser((user, done) => done(null, user.id));
   passport.deserializeUser((id, done) => {
     return done(null, async (id) => {
-      const user = await Credential.findOne({_id: id})
-      return user.id
+      const user = await Credential.findOne({ _id: id });
+      return user.id;
     });
   });
 }

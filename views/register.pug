@@ -1,59 +1,111 @@
 extends templates/layout.pug
 
 block bloat-content
-    include bloats/css/css@5-1-3.pug
-    include bloats/css/mdb4.pug
-    include bloats/jquery/jquery@3-1-6.pug
+  include bloats/css/css@5-1-3.pug
+  include bloats/css/mdb4.pug
+  include bloats/jquery/jquery@3-1-6.pug
 
 block bloat-additive-content
-    link(href="/stylesheets/register.css" rel="stylesheet")
+  link(href="/stylesheets/register.css", rel="stylesheet")
 
 block page-content
-    include ./components/navbar
-    section.bg-dark
-        .container.py-5.vh-100
-            .row.d-flex.justify-content-center.align-items-center
-                .col
-                    .card.card-registration.my-4
-                        .row.g-0
-                            video.col-xl-6.d-none.d-xl-block.video-element(autoplay loop muted playsinline)
-                                source(src="/assets/WINE_POUR_SLOW_MOTION.mp4" type="video/mp4")
-                            .col-xl-6
-                                .card-body.p-md-5.text-black
-                                    h3.mb-5.text-uppercase Registration
-                                    form(action="/users/register" method="POST")
-                                        .row
-                                            .col-md-6.mb-4
-                                                .form-outline
-                                                    input#firstname.form-control.form-control-lg.border(type="text" name="firstname")
-                                                    label.form-label(for="firstname") First name
-                                            .col-md-6.mb-4
-                                                .form-outline
-                                                    input#lastname.form-control.form-control-lg.border(type="text" name="lastname")
-                                                    label.form-label(for="lastname") Last name
-                                        .d-md-flex.justify-content-start.align-items-center.mb-4.py-2
-                                            h6.mb-0.me-4 Gender:
-                                            .form-check.form-check-inline.mb-0.me-4
-                                                input#femaleGender.form-check-input(type="radio" name="gender" value="Female")
-                                                label.form-check-label(for="femaleGender") Female
-                                            .form-check.form-check-inline.mb-0.me-4
-                                                input#maleGender.form-check-input(type="radio" name="gender" value="Male")
-                                                label.form-check-label(for="maleGender") Male
-                                            .form-check.form-check-inline.mb-0
-                                                input#otherGender.form-check-input(type="radio" name="gender" value="Other")
-                                                label.form-check-label(for="otherGender") Other
-                                        .form-outline.mb-4
-                                            input#username.form-control.form-control-lg.border(type="text" name="username")
-                                            label.form-label(for="username") Username
-                                        .form-outline.mb-4
-                                            input#email.form-control.form-control-lg.border(type="text" name="email")
-                                            label.form-label(for="email") Email
-                                        .form-outline.mb-4
-                                            input#password.form-control.form-control-lg.border(type="password" name="password")
-                                            label.form-label(for="password") Password
-                                        .form-outline.mb-4
-                                            input#passwordConfirm.form-control.form-control-lg.border(type="password" name="passwordConfirm")
-                                            label.form-label(for="passwordConfirm") Confirm Password
-                                        .d-flex.justify-content-end.pt-3
-                                            button.btn.btn-light.btn-lg(type="button") Reset all
-                                            button.btn.btn-primary.btn-lg.ms-2(type="submit") Register
+  include ./components/navbar
+  section.bg-dark
+    .container.py-5.vh-100
+      .row.d-flex.justify-content-center.align-items-center
+        .col
+          .card.card-registration.my-4
+            .row.g-0
+              video.col-xl-6.d-none.d-xl-block.rounded-start.rounded-3.video-element(
+                autoplay,
+                loop,
+                muted,
+                playsinline
+              )
+                source(
+                  src="/assets/WINE_POUR_SLOW_MOTION.mp4",
+                  type="video/mp4"
+                )
+              .col-xl-6
+                .card-body.p-md-5.text-black
+                  h3.mb-5.text-uppercase Registration
+                  form(action="/users/register", method="POST")
+                    .row
+                      .col-md-6.mb-4
+                        .form-outline
+                          input#firstname.form-control.form-control-lg.border(
+                            type="text",
+                            name="firstname",
+                            required
+                          )
+                          label.form-label(for="firstname") First name
+                      .col-md-6.mb-4
+                        .form-outline
+                          input#lastname.form-control.form-control-lg.border(
+                            type="text",
+                            name="lastname",
+                            required
+                          )
+                          label.form-label(for="lastname") Last name
+                    .d-md-flex.justify-content-start.align-items-center.mb-4.py-2
+                      h6.mb-0.me-4 Gender:
+                      .form-check.form-check-inline.mb-0.me-4
+                        input#femaleGender.form-check-input(
+                          type="radio",
+                          name="gender",
+                          value="Female"
+                        )
+                        label.form-check-label(for="femaleGender") Female
+                      .form-check.form-check-inline.mb-0.me-4
+                        input#maleGender.form-check-input(
+                          type="radio",
+                          name="gender",
+                          value="Male"
+                        )
+                        label.form-check-label(for="maleGender") Male
+                      .form-check.form-check-inline.mb-0
+                        input#otherGender.form-check-input(
+                          type="radio",
+                          name="gender",
+                          value="Other"
+                        )
+                        label.form-check-label(for="otherGender") Other
+                    .form-outline.mb-4
+                      input#username.form-control.form-control-lg.border(
+                        type="text",
+                        name="username",
+                        pattern=/^[a-z\d]+$/i,
+                        title="Username can only contain letters and numbers",
+                        required
+                      )
+                      label.form-label(for="username") Username
+                    .form-outline.mb-4
+                      input#email.form-control.form-control-lg.border(
+                        type="text",
+                        name="email",
+                        pattern="[a-zA-Z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$",
+                        title="Not a valid email pattern please try again",
+                        required
+                      )
+                      label.form-label(for="email") Email
+                    .form-outline.mb-4
+                      input#password.form-control.form-control-lg.border(
+                        type="password",
+                        name="password",
+                        pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9]).{8,12}$",
+                        title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters",
+                        required
+                      )
+                      label.form-label(for="password") Password
+                    .form-outline.mb-4
+                      input#passwordConfirm.form-control.form-control-lg.border(
+                        type="password",
+                        name="passwordConfirm"
+                      )
+                      label.form-label(for="passwordConfirm") Confirm Password
+                    .d-flex.justify-content-end.pt-3
+                      input.btn.btn-light.btn-lg(
+                        type="reset",
+                        value="Reset all"
+                      )
+                      button.btn.btn-primary.btn-lg.ms-2(type="submit") Register
