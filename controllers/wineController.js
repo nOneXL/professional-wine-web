@@ -35,8 +35,26 @@ const getWinesPage = async (req, res) => {
 const getStatisticsPage = async (req, res) => {
   try {
     const wines = await Wine.find();
+    const winesCountByYear = await Wine.aggregate([
+      {
+          $group: {
+              _id: "$year",
+              count: { $sum: 1 }
+          }
+      }
+  ])
+  const winesCountByType = await Wine.aggregate([
+    {
+        $group: {
+            _id: "$type",
+            count: { $sum: 1 }
+        }
+    }
+])
     await res.render("pages/wines/statistics.ejs", {
       wines: wines,
+      winesCountByYear: winesCountByYear,
+      winesCountByType: winesCountByType
     });
   } catch (e) {
     console.log(e);
@@ -93,22 +111,6 @@ const get = async (req, res) => {
 const getById = async (req, res) => {
   try {
     const wine = await Wine.findById(req.params.id);
-    await res.send(wine);
-  } catch (e) {
-    console.log(e);
-  }
-};
-
-const getWineCountPerYear = async (req, res) => {
-  try {
-    const wine = await Wine.aggregate([
-      {
-          $group: {
-              _id: "$year",
-              count: { $sum: 1 }
-          }
-      }
-  ])
     await res.send(wine);
   } catch (e) {
     console.log(e);
@@ -202,6 +204,5 @@ export {
   addOffer,
   getEditPage,
   getNewPage,
-  getWinePage,
-  getWineCountPerYear
+  getWinePage
 };
