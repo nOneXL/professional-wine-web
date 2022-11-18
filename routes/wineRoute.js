@@ -1,5 +1,6 @@
 import express from "express";
 import * as wineController from "../controllers/wineController.js";
+import {checkAuthenticated} from "../utils/sessionValidation.js";
 
 const wineRouter = express.Router();
 
@@ -7,11 +8,11 @@ wineRouter.get("/page", wineController.getWinesPage);
 
 wineRouter.get("/statistics", wineController.getStatisticsPage);
 
-wineRouter.get("/new", wineController.getNewPage);
+wineRouter.get("/new", checkAuthenticated, wineController.getNewPage);
 
-wineRouter.get("/edit/:id", wineController.getEditPage);
+wineRouter.get("/edit/:id", checkAuthenticated, wineController.getEditPage);
 
-wineRouter.get("/addoffer/:id", wineController.getNewOfferPage);
+wineRouter.get("/addoffer/:id", checkAuthenticated, wineController.getNewOfferPage);
 
 wineRouter.get("/page/:id", wineController.getWinePage);
 
@@ -19,14 +20,14 @@ wineRouter.get("/", wineController.get);
 
 wineRouter.get("/:id", wineController.getById);
 
-wineRouter.delete("/:id", wineController.remove);
+wineRouter.delete("/:id", checkAuthenticated, wineController.remove);
 
-wineRouter.delete("/removeoffer/:id&:num", wineController.removeOffer);
+wineRouter.delete("/removeoffer/:id&:num", checkAuthenticated, wineController.removeOffer);
 
-wineRouter.post("/", wineController.create);
+wineRouter.post("/", checkAuthenticated, wineController.create);
 
-wineRouter.put("/:id", wineController.update);
+wineRouter.put("/:id", checkAuthenticated, wineController.update);
 
-wineRouter.put("/addoffer/:id", wineController.addOffer);
+wineRouter.put("/addoffer/:id", checkAuthenticated, wineController.addOffer);
 
 export default wineRouter;

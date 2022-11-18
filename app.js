@@ -52,7 +52,7 @@ app.use(passport.session());
 // Routes
 app.use("/", homeRouter);
 app.use("/users", checkNotAuthenticated, credentialRouter);
-app.use("/blog", checkAuthenticated, blogRouter);
+app.use("/blog", blogRouter);
 app.use("/winery", wineryRouter);
 app.use("/wines", wineRouter);
 app.use("/country", countryRouter);
