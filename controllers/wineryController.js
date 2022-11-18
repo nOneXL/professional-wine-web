@@ -1,4 +1,4 @@
-import { Winery } from "../models/wineryModel.js";
+import { Winery } from "../models/Winery.js";
 
 const create = async (req, res) => {
   const winery = await new Winery({

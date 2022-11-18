@@ -3,45 +3,66 @@ import * as mongoose from "mongoose";
 const wineSchema = new mongoose.Schema({
   name: {
     type: String,
-    required: true,
+    required: [true, 'Wine name required!']
   },
   country: {
     type: String,
-    required: true,
+    required: [true, 'Wine country required!']
   },
   region: {
     type: String,
-    required: true,
+    required: [true, 'Wine region required!']
   },
   winery: {
     type: String,
-    required: true,
+    required: [true, 'Wine winery required!']
   },
-  grapes: [{ type: String, required: true }],
+  grapes: [{type: String, required: [true, 'Wine grapes required!']}],
   type: {
     type: String,
-    required: true,
+    required: [true, 'Wine name required!']
   },
   year: {
     type: Number,
-    required: true,
+    required: [true, 'Wine year required!'],
+    validate: {
+        validator: (v) => (v >= 0),
+        message: props => `${props.value} is not a valid year!`
+    }
   },
   rate: {
     type: mongoose.Types.Decimal128,
-    required: true,
-    min: 1,
-    max: 5,
+    required: [true, 'Wine rate required!'],
+    validate: {
+        validator: (v) => ((v >= 1) && (v <= 5)),
+        message: props => `${props.value} is not a valid rate!`
+    }
   },
   offers: [
     {
       user: {
         type: String,
+        required: [true, 'User required in offers!']
       },
       price: {
         type: mongoose.Types.Decimal128,
+        required: [true, 'Price required in offers!'],
+        validate: {
+            validator: (v) => (v >= 0),
+            message: props => `${props.value} is not a valid price!`
+        }
       },
       website: {
         type: String,
+        required: [true, 'Website required in offers!'],
+        validate: {
+            validator: function(v) {
+                const reHttps = new RegExp('https://');
+                const reCom = new RegExp('.com');
+                return (v.match(reHttps)) && (v.match(reCom));
+            },
+            message: props => `${props.value} is not a valid website!`
+          }
       },
     },
   ],
