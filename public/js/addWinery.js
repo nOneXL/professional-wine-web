@@ -1,7 +1,7 @@
     function myFunction() {
         var error_massege="";
         var Name = document.getElementById('Name').value;
-        var NameRGEX = /^[a-z A-Z]+$/;
+        var NameRGEX = /^[a-z A-Z 0-9]+$/;
         var NameResult = NameRGEX.test(Name);
         if (NameResult == false) {
             error_massege+= "Name: allow letters only / Can't be empty\n";
@@ -11,7 +11,7 @@
         }
      
         var Country = document.getElementById('Country').value;
-        var CountryRGEX = /^\d+$/;
+        var CountryRGEX = /^[a-z A-Z]+$/;
         var CountryResult = CountryRGEX.test(Country);
         if (CountryResult == false) {
             error_massege+="Country: allow numbers only / Can't be empty\n";
