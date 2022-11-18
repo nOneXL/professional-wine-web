@@ -19,6 +19,8 @@ wineRouter.get("/", wineController.get);
 
 wineRouter.get("/:id", wineController.getById);
 
+wineRouter.get("/year/count", wineController.getWineCountPerYear)
+
 wineRouter.delete("/:id", wineController.remove);
 
 wineRouter.delete("/removeoffer/:id&:num", wineController.removeOffer);
