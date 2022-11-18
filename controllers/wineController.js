@@ -99,6 +99,22 @@ const getById = async (req, res) => {
   }
 };
 
+const getWineCountPerYear = async (req, res) => {
+  try {
+    const wine = await Wine.aggregate([
+      {
+          $group: {
+              _id: "$year",
+              count: { $sum: 1 }
+          }
+      }
+  ])
+    await res.send(wine);
+  } catch (e) {
+    console.log(e);
+  }
+};
+
 const update = async (req, res) => {
   try {
     const wine = await Wine.findById(req.params.id);
@@ -187,4 +203,5 @@ export {
   getEditPage,
   getNewPage,
   getWinePage,
+  getWineCountPerYear
 };
