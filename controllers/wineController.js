@@ -32,6 +32,18 @@ const getWinesPage = async (req, res) => {
   }
 };
 
+const getStatisticsPage = async (req, res) => {
+  try {
+    const wines = await Wine.find();
+    await res.render("pages/wines/statistics.ejs", {
+      wines: wines,
+    });
+  } catch (e) {
+    console.log(e);
+  }
+};
+
+
 const getEditPage = async (req, res) => {
   try {
     const wine = await Wine.findById(req.params.id);
@@ -159,6 +171,8 @@ const remove = async (req, res) => {
   }
 };
 
+
+
 export {
   create,
   get,
@@ -166,6 +180,7 @@ export {
   update,
   remove,
   removeOffer,
+  getStatisticsPage,
   getWinesPage,
   getNewOfferPage,
   addOffer,

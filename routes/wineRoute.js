@@ -5,6 +5,8 @@ const wineRouter = express.Router();
 
 wineRouter.get("/page", wineController.getWinesPage);
 
+wineRouter.get("/statistics", wineController.getStatisticsPage);
+
 wineRouter.get("/new", wineController.getNewPage);
 
 wineRouter.get("/edit/:id", wineController.getEditPage);
