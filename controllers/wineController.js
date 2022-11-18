@@ -210,4 +210,5 @@ export {
   addOffer,
   getEditPage,
   getNewPage,
+  getWinePage
 };
