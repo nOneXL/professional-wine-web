@@ -31,6 +31,10 @@
             <%= wine.rate %>/5
         </p>
         <p class="card-text offers-count">Offers from: <%= wine.offers.length %> users</p>
+        <% if (wine.offers.length > 0) { %>
+            <p class="card-text avg-price">Average price: <%= wine.offers.map(val => parseFloat(val.price.toString())).reduce((a,b) => a + b, 0) / wine.offers.length %>₪</p>
+        <% } %>
+        
     <form action="/wines/<%= wine.id %>?_method=DELETE" method="POST">
 
             <button type="submit" class="btn btn-danger function-button"><svg xmlns="http://www.w3.org/2000/svg"

@@ -38,8 +38,21 @@
 .offers-count {
     /* float: right; */
     position: absolute;
-    left: 70%;
+    left: 65%;
     top: 20%;
+    font-size: large;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-weight: bold;
+}
+
+.avg-price {
+    /* float: right; */
+    position: absolute;
+    left: 65%;
+    top: 30%;
+    font-size: large;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-weight: bold;
 }
 
 .wine-cards {
