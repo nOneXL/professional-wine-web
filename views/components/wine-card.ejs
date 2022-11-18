@@ -33,6 +33,7 @@
         <p class="card-text offers-count">Offers from: <%= wine.offers.length %> users</p>
         <% if (wine.offers.length > 0) { %>
             <p class="card-text avg-price">Average price: <%= wine.offers.map(val => parseFloat(val.price.toString())).reduce((a,b) => a + b, 0) / wine.offers.length %>₪</p>
+            <p class="card-text min-price">Minimum price: <%= Math.min(...wine.offers.map(val => parseFloat(val.price.toString()))) %>₪</p>
         <% } %>
         
     <form action="/wines/<%= wine.id %>?_method=DELETE" method="POST">

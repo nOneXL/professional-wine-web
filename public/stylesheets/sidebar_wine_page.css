@@ -55,6 +55,16 @@
     font-weight: bold;
 }
 
+.min-price {
+    /* float: right; */
+    position: absolute;
+    left: 65%;
+    top: 40%;
+    font-size: large;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-weight: bold;
+}
+
 .wine-cards {
     float:right;
     margin-left: 80vh;
