@@ -103,6 +103,6 @@ function popInfobox(pin) {
 
 (async () => {
     let map_core = document.createElement("script");
-    map_core.setAttribute("src", `https://www.bing.com/api/maps/mapcontrol?callback=GetMap&key=${process.env.BING_KEY}`);
+    map_core.setAttribute("src", `https://www.bing.com/api/maps/mapcontrol?callback=GetMap&key=AspDHQTg89yBJv8vxkcY9Yl9N-rr-yMeDASQNxg48aQmCmunSPhGLsOewW4RHbdo`);
     document.body.appendChild(map_core);
 })();
