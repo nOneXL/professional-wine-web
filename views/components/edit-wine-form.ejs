@@ -1,104 +1,52 @@
 <div class="form-group row">
     <label class="col-sm-2 col-form-label">Name</label>
     <div class="col-sm-10">
-        <input type="text" class="form-control" name="name" id="name" placeholder="Name" value="<%= wine.name %>">
+      <input type="text" class="form-control" name="name" id="name" placeholder="Name" value="<%= wine.name %>">
     </div>
-</div>
-<div class="form-group row">
+  </div>
+  <div class="form-group row">
     <label for="validationDefault01" class="col-sm-2 col-form-label">Country</label>
     <div class="col-sm-10">
-        <input type="text" class="form-control" id="country" name="country" placeholder="Country"
-            value="<%= wine.country %>">
+      <input type="text" class="form-control" id="country" name="country" placeholder="Country" value="<%= wine.country %>">
     </div>
-</div>
-<div class="form-group row">
+  </div>
+  <div class="form-group row">
     <label for="validationDefault01" class="col-sm-2 col-form-label">Region</label>
     <div class="col-sm-10">
-        <input type="text" class="form-control" id="region" name="region" placeholder="Region"
-            value="<%= wine.region %>">
+      <input type="text" class="form-control" id="region" name="region" placeholder="Region" value="<%= wine.region %>">
     </div>
-</div>
-<div class="form-group row">
+  </div>
+  <div class="form-group row">
     <label class="col-sm-2 col-form-label">Winery</label>
     <div class="col-sm-10">
-        <input type="text" class="form-control" id="winery" placeholder="winery" name="winery"
-            value="<%= wine.winery %>">
+      <input type="text" class="form-control" id="winery" placeholder="winery" name="winery" value="<%= wine.winery %>">
     </div>
-</div>
-
-<div class="form-group row">
-    <label class="col-sm-2 col-form-label">Grapes</label>
-    <div class="col-sm-10">
-        <div class="form-check">
-            <input class="form-check-input" type="checkbox" value="Albarino to Baijiu" id="Albarino to Baijiu"
-                name="AlbarinotoBaijiu">
-            <label class="form-check-label" for="flexCheckDefault">
-                Albarino to Baijiu
-            </label>
-        </div>
-        <div class="form-check">
-            <input class="form-check-input" type="checkbox" value="Brachetto" id="Brachetto">
-            <label class="form-check-label" for="flexCheckChecked">
-                Brachetto
-            </label>
-        </div>
-        <div class="form-check">
-            <input class="form-check-input" type="checkbox" value="Cabernet Franc" id="Cabernet Franc">
-            <label class="form-check-label" for="flexCheckChecked">
-                Cabernet Franc
-            </label>
-        </div>
-        <div class="form-check">
-            <input class="form-check-input" type="checkbox" value="" id="Cabernet Sauvignon">
-            <label class="form-check-label" for="flexCheckChecked">
-                Cabernet Sauvignon
-            </label>
-        </div>
-        <div class="form-check">
-            <input class="form-check-input" type="checkbox" value="" id="Cabernet - Syrah - Tempranillo">
-            <label class="form-check-label" for="flexCheckChecked">
-                Cabernet - Syrah - Tempranillo
-            </label>
-        </div>
-        <div class="form-check">
-            <input class="form-check-input" type="checkbox" value="" id="Cabernet Sauvignon - Pinot Noir">
-            <label class="form-check-label" for="flexCheckChecked">
-                Cabernet Sauvignon - Pinot Noir
-            </label>
-        </div>
-        <div class="form-check">
-            <input class="form-check-input" type="checkbox" value="" id="Cabernet Sauvignon - Malbec">
-            <label class="form-check-label" for="flexCheckChecked">
-                Cabernet Sauvignon - Malbec
-            </label>
-        </div>
-        <div class="form-check">
-            <input class="form-check-input" type="checkbox" value="" id="Cabernet - Syrah/Shiraz">
-            <label class="form-check-label" for="flexCheckChecked">
-                Cabernet - Syrah/Shiraz
-            </label>
-        </div>
-        <div class="form-check">
-            <input class="form-check-input" type="checkbox" value="" id="Riesling">
-            <label class="form-check-label" for="flexCheckChecked">
-                Riesling
-            </label>
-        </div>
-        <div class="form-check">
-            <input class="form-check-input" type="checkbox" value="" id="Merlot">
-            <label class="form-check-label" for="flexCheckChecked">
-                Merlot
-            </label>
-        </div>
-    </div>
-</div>
-<div class="form-group row">
+  </div>
+  
+  <div class="form-group row">
     <label class="col-sm-2 col-form-label">Year</label>
     <div class="col-sm-10">
-        <input type="text" class="form-control" id="year" placeholder="Year" name="year" value="<%= wine.year %>">
+      <input type="text" class="form-control" id="year" placeholder="Year" name="year" value="<%= wine.year %>">
     </div>
-</div>
-<fieldset class="form-group">
+  </div>
+  
+  <fieldset class="form-group">
+    <div class="row">
+      <legend class="col-form-label col-sm-2">Grapes</legend>
+      <div class="col-sm-10">
+      <% var grape_list = ["Albarino to Baijiu","Brachetto","Cabernet Franc","Cabernet Sauvignon","Cabernet","Syrah","Tempranillo","Pinot Noir","Malbec","Syrah/Shiraz", "Merlot"]; %>
+      <% grape_list.forEach(function(grape){ %>
+        <div class="form-check">
+          <input class="form-check-input grapes" type="checkbox" value="<%= grape %>" id="grapes" name="grapes" <% if(wine.grapes.includes(grape)){%> checked <%}%>>
+          <label class="form-check-label" for="gridRadios1">
+            <%= grape %>
+          </label>
+        </div>
+     <% }); %>
+  
+    </div>
+  </fieldset>
+  <fieldset class="form-group">
     <div class="row">
         <legend class="col-form-label col-sm-2">Type</legend>
         <div class="col-sm-10">
@@ -122,23 +70,28 @@
             </div>
         </div>
     </div>
-
+  
     <div class="form-group row">
-        <label class="col-sm-2 col-form-label">Rate</label>
-        <div class="col-sm-10">
-            <input type="text" class="form-control" id="rate" placeholder="Rate" name="rate" value="<%= wine.rate %>">
-        </div>
+      <label class="col-sm-2 col-form-label">Rate</label>
+      <div class="col-sm-10">
+  
+        <input type="text" class="form-control" id="rate" placeholder="Rate" name="rate" value="<%= wine.rate %>">
+  
+      </div>
     </div>
-</fieldset>
-
-
-<div class="form-group row">
+  </fieldset>
+  
+  
+  <div class="form-group row">
     <div class="col-sm-10">
-
+  
     </div>
-</div>
-
-<a href="/wines/page/<%=wine.id%>" class="btn btn-secondary">Cancel</a>
-<button type="submit" class="btn btn-primary">Save</button>
-
-
+  </div>
+  
+  
+  <a href="/wines/page/<%=wine.id%>" class="btn btn-secondary">Cancel</a>
+  <button type="submit" class="btn btn-primary">Save</button>
+  
+  
+  
+  
