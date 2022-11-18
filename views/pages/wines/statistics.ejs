@@ -23,66 +23,115 @@
     <%- include("../../components/navbar2.ejs"); %>
 
   </div>
+  <div>
+    <div class="myChart">
+      <canvas id="myChart2" class="myChart"></canvas>
+    </div>
 
-  <div class="myChart">
-    <canvas id="myChart2" class="myChart"></canvas>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <script>
+
+      var data1 = [0, 0, 0];
+      var labels = ['Red', 'white', 'Rose'];
+
+    </script>
+    <% for(var i=0; i < wines.length; i++) { %>
+      <% if(wines[i].type=="White wine" ){%>
+        <script>
+          data1[1]++; 
+        </script>
+        <%}%>
+          <% if(wines[i].type=="Red wine" ){%>
+            <script>
+              data1[0]++; 
+            </script>
+            <%}%>
+              <% if(wines[i].type=="Rose wine" ){%>
+                <script>
+                  data1[2]++; 
+                </script>
+                <%}%>
+
+                  <% } %>
+                    <script>
+                      const data = {
+                        labels: labels,
+                        datasets: [{
+                          backgroundColor: [
+                            'rgb(163,24,24)',
+                            'rgb(250,214,165)',
+                            'rgb(255, 185, 185)'
+                          ],
+                          data: data1
+                        }]
+                      };
+
+                      const config2 = {
+                        type: 'doughnut',
+                        data: data,
+                        options: {}
+                      };
+                    </script>
+
+
+
+                    <script>
+                      const myChart2 = new Chart(
+                        document.getElementById('myChart2'),
+                        config2
+                      );
+                    </script>
   </div>
+  <div>
+    <div>
+      <div class="myChart">
+        <canvas id="myChart3" class="myChart"></canvas>
+      </div>
 
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
-  <script>
+      <div>
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+        <script>
 
-    var data1 = [0, 0, 0];
-    var labels = ['Red', 'white', 'Rose'];
+          var labelsX = [];
+          var data1X = [];
 
-  </script>
-  <% for(var i=0; i < wines.length; i++) { %>
-    <% if(wines[i].type=="White wine" ){%>
-      <script>
-        data1[1]++; 
-      </script>
-      <%}%>
-        <% if(wines[i].type=="Red wine" ){%>
+        </script>
+        <% for(var i=0; i < winesCountByCountry.length; i++) { %>
           <script>
-            data1[0]++; 
+            labels.push('<%= winesCountByCountry[i]._id %>')
+            data1.push('<%= winesCountByCountry[i].count %>')
           </script>
-          <%}%>
-            <% if(wines[i].type=="Rose wine" ){%>
-              <script>
-                data1[2]++; 
-              </script>
-              <%}%>
+          <% } %>
+            <script>
+              const data = {
+                labels: labelsX,
+                datasets: [{
+                  label: 'Years',
+                  backgroundColor: 'rgb(255, 99, 132)',
+                  data: data1X
+                }]
+              };
 
-                <% } %>
-                  <script>
-                    const data = {
-                      labels: labels,
-                      datasets: [{
-                        backgroundColor: [
-                          'rgb(163,24,24)',
-                          'rgb(250,214,165)',
-                          'rgb(255, 185, 185)'
-                        ],
-                        data: data1
-                      }]
-                    };
-
-                    const config2 = {
-                      type: 'doughnut',
-                      data: data,
-                      options: {}
-                    };
-                  </script>
+              const config3 = {
+                type: 'bar',
+                data: data,
+                options: {}
+              };
+          
 
 
 
-                  <script>
-                    const myChart2 = new Chart(
-                      document.getElementById('myChart2'),
-                      config2
-                    );
-                  </script>
+            
+              const myChart3 = new Chart(
+                document.getElementById('myChart3'),
+                config3
+              );
+            </script>
+      </div>
 
+    </div>
 
 
 
