@@ -50,11 +50,20 @@ const getStatisticsPage = async (req, res) => {
             count: { $sum: 1 }
         }
     }
-])
+  ])
+  const winesCountByCountry = await Wine.aggregate([
+    {
+        $group: {
+            _id: "$country",
+            count: { $sum: 1 }
+        }
+    }
+  ])
     await res.render("pages/wines/statistics.ejs", {
       wines: wines,
       winesCountByYear: winesCountByYear,
-      winesCountByType: winesCountByType
+      winesCountByType: winesCountByType,
+      winesCountByCountry: winesCountByCountry
     });
   } catch (e) {
     console.log(e);
