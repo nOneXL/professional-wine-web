@@ -24,9 +24,11 @@ a:focus {
 .form-control:focus {
   background: #212529;
 }
-
+.link{
+  color: grey;
+}
 footer {
-  background: #212529;
+  background:rgba(233, 228, 228, 0.69)
 }
 
 /* ==========================================
