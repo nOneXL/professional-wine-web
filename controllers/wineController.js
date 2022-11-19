@@ -101,12 +101,10 @@ const getNewOfferPage = async (req, res) => {
 
 const getNewPage = async (req, res) => {
   try {
-    const wines = await Wine.find()
-    await res.render("pages/wines/addwine.ejs", { 
-    wine: new Wine(),
-    wines: wines,
-    isAuth: req.isAuthenticated(),
-    isAdmin: res.locals.isAdmin,
+    await res.render("pages/wines/addwine.ejs", {
+      wine: new Wine(),
+      isAuth: req.isAuthenticated(),
+      isAdmin: res.locals.isAdmin,
     });
   } catch (e) {
     console.log(e);

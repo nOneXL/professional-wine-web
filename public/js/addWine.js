@@ -44,7 +44,14 @@ $(() => {
       event.stopPropagation();
     }
 
-  
+    var winery = document.getElementById("winery").value;
+    var wineryRGEX = /^[a-z A-Z0-9]+$/;
+    var wineryResult = wineryRGEX.test(winery);
+    if (wineryResult == false) {
+      error_massege += "winery: allow letters only / Can't be empty\n";
+      event.preventDefault();
+      event.stopPropagation();
+    }
 
     var atLeastOnTypeChecked = Math.max(
       ...Array.from($(".grapes")).map((elem) => elem.checked)

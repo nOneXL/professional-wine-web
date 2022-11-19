@@ -18,15 +18,9 @@
   </div>
 </div>
 <div class="form-group row">
-  <label for="validationDefault01" class="col-sm-2 col-form-label">Winery</label>
-    <div >
-      <select name="winery">
-        <% [...new Set(wines.map(obj => obj.winery))].forEach(winery => { %>
-            <option><li><a class="dropdown-item" value="<%= winery %>" ><%= winery %></a></li></option>
-          <% }) %>
-      </div>
-    </select>
-
+  <label class="col-sm-2 col-form-label">Winery</label>
+  <div class="col-sm-10">
+    <input type="text" class="form-control" id="winery" placeholder="winery" name="winery" value="<%= wine.winery %>">
   </div>
 </div>
 
