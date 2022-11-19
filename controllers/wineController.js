@@ -90,7 +90,10 @@ const getNewOfferPage = async (req, res) => {
 
 const getNewPage = async (req, res) => {
   try {
-    await res.render("pages/wines/addwine.ejs", { wine: new Wine() });
+    const wines = await Wine.find()
+    await res.render("pages/wines/addwine.ejs", { 
+    wine: new Wine(),
+    wines: wines  });
   } catch (e) {
     console.log(e);
   }
