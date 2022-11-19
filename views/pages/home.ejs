@@ -20,7 +20,7 @@
 </head>
 <body>
 <div>
-    <%- include('../components/navbar.ejs'); %>
+    <%- include('../components/navbar.ejs'), { isAuth: isAuth } %>
     <%- include('../components/slides.ejs'); %>
     <%- include('../components/weather.ejs'); %>
 
@@ -32,4 +32,4 @@
 <%- include('../components/footer.ejs'); %>
 
 
-<html>
+</html>

@@ -2,175 +2,174 @@
 <html lang="en">
 
 <head>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
-    crossorigin="anonymous"></script>
-  <script src="https://code.jquery.com/jquery-3.6.1.js" integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI="
-    crossorigin="anonymous"></script>
-  <script src="/js/wine-filter.js"></script>
-  <link type="text/css" rel="stylesheet" href="/stylesheets/blog.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
+            crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.1.js"
+            integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI="
+            crossorigin="anonymous"></script>
+    <script src="/js/wine-filter.js"></script>
+    <link type="text/css" rel="stylesheet" href="/stylesheets/blog.css">
 
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Wine 🍷 Not?</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wine 🍷 Not?</title>
 </head>
 
 <body>
-  <div>
-    <%- include("../../components/navbar.ejs"); %>
+<div>
+    <%- include("../../components/navbar.ejs"), { isAuth: isAuth } %>
 
-  </div>
+</div>
 
-  <div>
+<div>
     <div class="myChart">
-      <canvas id="myChart4" class="myChart"></canvas>
+        <canvas id="myChart4" class="myChart"></canvas>
     </div>
     <div>
-      <div class="myChart">
-        <canvas id="myChart5" class="myChart"></canvas>
-      </div>
-  <div>
-    <div class="myChart">
-      <canvas id="myChart3" class="myChart"></canvas>
-    </div>
-
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-
-    
-
-      <div>
-        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-        <script>
-
-          var labelsC = [];
-          var data1C = [];
-          var colors =['rgb(255, 102, 102)','rgb(51, 153, 255)','rgb(255, 178, 102)','rgb(0, 204, 102)','rgb(106, 215, 195)','rgb(156, 244, 251)' ];
-
-        </script>
-        <% for(var i=0; i < winesCountByCountry.length; i++) { %>
-          <script>
-            labelsC.push('<%= winesCountByCountry[i]._id %>')
-            data1C.push('<%= winesCountByCountry[i].count %>')
-
-          </script>
-          <% } %>
-            <script>
-              const data = {
-                labels: labelsC,
-                datasets: [{
-                  label: 'Countries',
-                  backgroundColor: colors,
-                  data: data1C
-                }]
-              };
-
-              const config3 = {
-                type: 'bar',
-                data: data,
-                options: {}
-              };
-          
-              const myChart3 = new Chart(
-                document.getElementById('myChart3'),
-                config3
-              );
-            </script>
-      </div>
-
-    </div>
-
-    <div>
-     
-  
-  
+        <div class="myChart">
+            <canvas id="myChart5" class="myChart"></canvas>
+        </div>
         <div>
-  
-          <script>
-  
-            var labelsT = [];
-            var data1T = [];
-            var colorsT =['rgb(153, 0, 0)','rgb(255, 255, 153)','rgb(243, 58, 106)' ];
-  
-          </script>
-          <% for(var i=0; i < winesCountByType.length; i++) { %>
-            <script>
-              labelsT.push('<%= winesCountByType[i]._id %>')
-              data1T.push('<%= winesCountByType[i].count %>')
-  
-            </script>
-            <% } %>
-              <script>
-                const dataTT = {
-                  labels: labelsT,
-                  datasets: [{
-                    label: 'Type',
-                    backgroundColor: colorsT,
-                    data: data1T
-                  }]
-                };
-  
-                const config4 = {
-                  type: 'doughnut',
-                  data: dataTT,
-                  options: {}
-                };
-            
-                const myChart4 = new Chart(
-                  document.getElementById('myChart4'),
-                  config4
-                );
-              </script>
-        </div>
-  
-      </div>
+            <div class="myChart">
+                <canvas id="myChart3" class="myChart"></canvas>
+            </div>
 
-      <div>
-        
-    
-          <div>
-    
-            <script>
-    
-              var labelsY = [];
-              var data1Y = [];
-              var colorsY =['rgb(255, 102, 102)','rgb(51, 153, 255)','rgb(255, 178, 102)','rgb(0, 204, 102)','rgb(106, 215, 195)','rgb(156, 244, 251)'];
-    
-            </script>
-            <% for(var i=0; i < winesCountByYear.length; i++) { %>
-              <script>
-                labelsY.push('<%= winesCountByYear[i]._id %>')
-                data1Y.push('<%= winesCountByYear[i].count %>')
-    
-              </script>
-              <% } %>
+            <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+
+            <div>
+                <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
                 <script>
-                  const dataYY = {
-                    labels: labelsY,
-                    datasets: [{
-                      label: 'Year',
-                      backgroundColor: colorsY,
-                      data: data1Y,
-                    }]
-                  };
-    
-                  const config5 = {
-                    type: 'doughnut',
-                    data: dataYY,
-                    options: {}
-                  };
-              
-                  const myChart5 = new Chart(
-                    document.getElementById('myChart5'),
-                    config5
-                  );
+
+                    var labelsC = [];
+                    var data1C = [];
+                    var colors = ['rgb(255, 102, 102)', 'rgb(51, 153, 255)', 'rgb(255, 178, 102)', 'rgb(0, 204, 102)', 'rgb(106, 215, 195)', 'rgb(156, 244, 251)'];
+
                 </script>
-          </div>
-    
+                <% for(var i = 0; i < winesCountByCountry.length; i++) { %>
+                    <script>
+                        labelsC.push('<%= winesCountByCountry[i]._id %>')
+                        data1C.push('<%= winesCountByCountry[i].count %>')
+
+                    </script>
+                <% } %>
+                <script>
+                    const data = {
+                        labels: labelsC,
+                        datasets: [{
+                            label: 'Countries',
+                            backgroundColor: colors,
+                            data: data1C
+                        }]
+                    };
+
+                    const config3 = {
+                        type: 'bar',
+                        data: data,
+                        options: {}
+                    };
+
+                    const myChart3 = new Chart(
+                        document.getElementById('myChart3'),
+                        config3
+                    );
+                </script>
+            </div>
+
         </div>
-  
+
+        <div>
+
+
+            <div>
+
+                <script>
+
+                    var labelsT = [];
+                    var data1T = [];
+                    var colorsT = ['rgb(153, 0, 0)', 'rgb(255, 255, 153)', 'rgb(243, 58, 106)'];
+
+                </script>
+                <% for(var i = 0; i < winesCountByType.length; i++) { %>
+                    <script>
+                        labelsT.push('<%= winesCountByType[i]._id %>')
+                        data1T.push('<%= winesCountByType[i].count %>')
+
+                    </script>
+                <% } %>
+                <script>
+                    const dataTT = {
+                        labels: labelsT,
+                        datasets: [{
+                            label: 'Type',
+                            backgroundColor: colorsT,
+                            data: data1T
+                        }]
+                    };
+
+                    const config4 = {
+                        type: 'doughnut',
+                        data: dataTT,
+                        options: {}
+                    };
+
+                    const myChart4 = new Chart(
+                        document.getElementById('myChart4'),
+                        config4
+                    );
+                </script>
+            </div>
+
+        </div>
+
+        <div>
+
+
+            <div>
+
+                <script>
+
+                    var labelsY = [];
+                    var data1Y = [];
+                    var colorsY = ['rgb(255, 102, 102)', 'rgb(51, 153, 255)', 'rgb(255, 178, 102)', 'rgb(0, 204, 102)', 'rgb(106, 215, 195)', 'rgb(156, 244, 251)'];
+
+                </script>
+                <% for(var i = 0; i < winesCountByYear.length; i++) { %>
+                    <script>
+                        labelsY.push('<%= winesCountByYear[i]._id %>')
+                        data1Y.push('<%= winesCountByYear[i].count %>')
+
+                    </script>
+                <% } %>
+                <script>
+                    const dataYY = {
+                        labels: labelsY,
+                        datasets: [{
+                            label: 'Year',
+                            backgroundColor: colorsY,
+                            data: data1Y,
+                        }]
+                    };
+
+                    const config5 = {
+                        type: 'doughnut',
+                        data: dataYY,
+                        options: {}
+                    };
+
+                    const myChart5 = new Chart(
+                        document.getElementById('myChart5'),
+                        config5
+                    );
+                </script>
+            </div>
+
+        </div>
+
 
 </body>
 

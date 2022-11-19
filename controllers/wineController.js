@@ -26,6 +26,8 @@ const getWinesPage = async (req, res) => {
     const wines = await Wine.find();
     await res.render("pages/wines/wines.ejs", {
       wines: wines,
+      isAuth: req.isAuthenticated(),
+      isAdmin: res.locals.isAdmin,
     });
   } catch (e) {
     console.log(e);
@@ -37,33 +39,34 @@ const getStatisticsPage = async (req, res) => {
     const wines = await Wine.find();
     const winesCountByYear = await Wine.aggregate([
       {
-          $group: {
-              _id: "$year",
-              count: { $sum: 1 }
-          }
-      }
-  ])
-  const winesCountByType = await Wine.aggregate([
-    {
         $group: {
-            _id: "$type",
-            count: { $sum: 1 }
-        }
-    }
-  ])
-  const winesCountByCountry = await Wine.aggregate([
-    {
+          _id: "$year",
+          count: { $sum: 1 },
+        },
+      },
+    ]);
+    const winesCountByType = await Wine.aggregate([
+      {
         $group: {
-            _id: "$country",
-            count: { $sum: 1 }
-        }
-    }
-  ])
+          _id: "$type",
+          count: { $sum: 1 },
+        },
+      },
+    ]);
+    const winesCountByCountry = await Wine.aggregate([
+      {
+        $group: {
+          _id: "$country",
+          count: { $sum: 1 },
+        },
+      },
+    ]);
     await res.render("pages/wines/statistics.ejs", {
       wines: wines,
       winesCountByYear: winesCountByYear,
       winesCountByType: winesCountByType,
-      winesCountByCountry: winesCountByCountry
+      winesCountByCountry: winesCountByCountry,
+      isAuth: req.isAuthenticated(),
     });
   } catch (e) {
     console.log(e);
@@ -73,7 +76,11 @@ const getStatisticsPage = async (req, res) => {
 const getEditPage = async (req, res) => {
   try {
     const wine = await Wine.findById(req.params.id);
-    await res.render("pages/wines/edit_wine.ejs", { wine: wine });
+    await res.render("pages/wines/edit_wine.ejs", {
+      wine: wine,
+      isAuth: req.isAuthenticated(),
+      isAdmin: res.locals.isAdmin,
+    });
   } catch (e) {
     console.log(e);
   }
@@ -82,7 +89,11 @@ const getEditPage = async (req, res) => {
 const getNewOfferPage = async (req, res) => {
   try {
     const wine = await Wine.findById(req.params.id);
-    await res.render("pages/wines/addoffer.ejs", { wine: wine });
+    await res.render("pages/wines/addoffer.ejs", {
+      wine: wine,
+      isAuth: req.isAuthenticated(),
+      isAdmin: res.locals.isAdmin,
+    });
   } catch (e) {
     console.log(e);
   }
@@ -90,7 +101,11 @@ const getNewOfferPage = async (req, res) => {
 
 const getNewPage = async (req, res) => {
   try {
-    await res.render("pages/wines/addwine.ejs", { wine: new Wine() });
+    await res.render("pages/wines/addwine.ejs", {
+      wine: new Wine(),
+      isAuth: req.isAuthenticated(),
+      isAdmin: res.locals.isAdmin,
+    });
   } catch (e) {
     console.log(e);
   }
@@ -101,6 +116,8 @@ const getWinePage = async (req, res) => {
     const wine = await Wine.findById(req.params.id);
     res.render("pages/wines/wine.ejs", {
       wine: wine,
+      isAuth: req.isAuthenticated(),
+      isAdmin: res.locals.isAdmin,
     });
   } catch (e) {
     console.log(e);
@@ -210,5 +227,5 @@ export {
   addOffer,
   getEditPage,
   getNewPage,
-  getWinePage
+  getWinePage,
 };

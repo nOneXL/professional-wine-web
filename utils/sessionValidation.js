@@ -12,3 +12,8 @@ export const checkNotAuthenticated = function (req, res, next) {
   }
   next();
 };
+
+export const isAdmin = async function (req, res, next) {
+  res.locals.isAdmin = req.user.role;
+  next();
+};

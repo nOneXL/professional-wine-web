@@ -23,5 +23,4 @@ credentialRouter.post(
   })
 );
 
-
 export default credentialRouter;

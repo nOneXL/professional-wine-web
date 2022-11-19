@@ -21,7 +21,9 @@ const create = async (req, res) => {
 
 const getNewPage = async (req, res) => {
   try {
-    await res.render("pages/winery/add_winery.ejs");
+    await res.render("pages/winery/add_winery.ejs", {
+      isAuth: req.isAuthenticated(),
+    });
   } catch (e) {
     console.log(e);
   }
@@ -38,7 +40,7 @@ const get = async (req, res) => {
 
 const getmap = async (req, res) => {
   try {
-    await res.render("pages/winery/map.ejs");
+    await res.render("pages/winery/map.ejs", { isAuth: req.isAuthenticated() });
   } catch (e) {
     console.log(e);
   }
@@ -49,6 +51,8 @@ const getwineries = async (req, res) => {
     const winery = await Winery.find();
     await res.render("pages/winery/wineries.ejs", {
       winery: winery,
+      isAuth: req.isAuthenticated(),
+      isAdmin: res.locals.isAdmin,
     });
   } catch (e) {
     console.log(e);
