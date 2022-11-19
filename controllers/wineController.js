@@ -93,7 +93,10 @@ const getNewPage = async (req, res) => {
     const wines = await Wine.find()
     await res.render("pages/wines/addwine.ejs", { 
     wine: new Wine(),
-    wines: wines  });
+    wines: wines,
+    isAuth: req.isAuthenticated(),
+    isAdmin: res.locals.isAdmin,
+    });
   } catch (e) {
     console.log(e);
   }
