@@ -9,11 +9,11 @@ const create = async (req, res) => {
     firstname: req.body.firstname,
     lastname: req.body.lastname,
     gender: req.body.gender,
+    role: req.body.role,
   });
 
   await user.save().catch((err) => console.error(err));
   res.redirect("/users/login"); // Should be changed as needed
 };
-
 
 export { create };
