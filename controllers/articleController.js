@@ -32,6 +32,8 @@ const getBlogPage = async (req, res) => {
       blog_post_list: articles.sort(
         (a, b) => new Date(b.createdAt) - new Date(a.createdAt)
       ),
+      isAuth: req.isAuthenticated(),
+      isAdmin: res.locals.isAdmin,
     });
   } catch (e) {
     console.log(e);
@@ -41,7 +43,10 @@ const getBlogPage = async (req, res) => {
 const getEditPage = async (req, res) => {
   try {
     const article = await Article.findById(req.params.id);
-    await res.render("pages/blog/edit_blog.ejs", { article: article });
+    await res.render("pages/blog/edit_blog.ejs", {
+      article: article,
+      isAuth: req.isAuthenticated(),
+    });
   } catch (e) {
     console.log(e);
   }
@@ -49,7 +54,10 @@ const getEditPage = async (req, res) => {
 
 const getNewPage = async (req, res) => {
   try {
-    await res.render("pages/blog/new_blog.ejs", { article: new Article() });
+    await res.render("pages/blog/new_blog.ejs", {
+      article: new Article(),
+      isAuth: req.isAuthenticated(),
+    });
   } catch (e) {
     console.log(e);
   }
@@ -60,6 +68,7 @@ const getArticlePage = async (req, res) => {
     const article = await Article.findById(req.params.id);
     res.render("pages/blog/article.ejs", {
       article: article,
+      isAuth: req.isAuthenticated(),
     });
   } catch (e) {
     console.log(e);
@@ -86,9 +95,7 @@ const getById = async (req, res) => {
 
 const update = async (req, res) => {
   const { id } = req.params;
-  const article = await Article.findById(id);
-
-  let article_edit = article;
+  let article_edit = await Article.findById(id);
   article_edit.title = req.body.title;
   article_edit.text = req.body.text;
   article_edit.image = checkForCorrectImage(req.body.image);

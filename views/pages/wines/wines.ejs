@@ -21,7 +21,7 @@
 
 <body>
 <div>
-    <%- include("../../components/navbar.ejs"); %>
+    <%- include("../../components/navbar.ejs"), { isAuth: isAuth } %>
 
 </div>
 <a href="/wines/new" class="btn btn-success">
@@ -31,14 +31,13 @@
         <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
     </svg>
 </a>
-    <%- include("../../components/wine_page_side_filters.ejs", {wines: wines}); %>
-    <div class="wine-cards">
-        <% for(var i = 0; i < wines.length; i++) { %>
-            <div class="wine-card">
-                <%- include("../../components/wine-card.ejs", {wine: wines[i]}); %>
-            </div>
-        <% } %>
-    </div>
+<%- include("../../components/wine_page_side_filters.ejs", {wines: wines}); %>
+<div class="wine-cards">
+    <% for(var i = 0; i < wines.length; i++) { %>
+        <div class="wine-card">
+            <%- include("../../components/wine-card.ejs", {wine: wines[i], isAdmin: isAdmin}); %>
+        </div>
+    <% } %>
 </div>
 </body>
 

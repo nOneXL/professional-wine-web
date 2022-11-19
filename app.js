@@ -15,6 +15,7 @@ import passport from "passport";
 import {
   checkAuthenticated,
   checkNotAuthenticated,
+  isAdmin,
 } from "./utils/sessionValidation.js";
 
 const app = express();
@@ -52,9 +53,9 @@ app.use(passport.session());
 // Routes
 app.use("/", homeRouter);
 app.use("/users", checkNotAuthenticated, credentialRouter);
-app.use("/blog", checkAuthenticated, blogRouter);
-app.use("/winery", wineryRouter);
-app.use("/wines", wineRouter);
+app.use("/blog", checkAuthenticated, isAdmin, blogRouter);
+app.use("/winery", checkAuthenticated, isAdmin, wineryRouter);
+app.use("/wines", checkAuthenticated, isAdmin, wineRouter);
 app.use("/country", countryRouter);
 app.get("/logout", (req, res, next) => {
   req.logout((err) => {

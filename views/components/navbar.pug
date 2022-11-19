@@ -21,8 +21,13 @@ nav.navbar.navbar-expand-lg.bg-light
             width="25",
             height="25"
           )
-        li.nav-item
-          a.nav-link(href="/wines/page") Wines
+        li.dropdown.nav-link.winery
+          span Wines
+          |
+          i.bi.bi-chevron-down
+          ul
+            a.nav-link(href="/wines/page") Wines
+            a.nav-link(href="/wines/statistics") Statistics
         li
           img(src="/images/grapes.svg", alt="image", width="25", height="25")
         li.dropdown.nav-link.winery
@@ -38,8 +43,6 @@ nav.navbar.navbar-expand-lg.bg-light
           a.nav-link(href="/blog/page") Blog
         li.nav-item
           a.nav-link(href="/users/login") Login
-        li.nav-item
-          a.nav-link(href="/logout", methods="GET") Logout
 script.
   const c = document.getElementById("myCanvas");
   let ctx = c.getContext("2d");

@@ -14,7 +14,7 @@
 </head>
 <body>
     <div>
-        <%- include("../../components/navbar.ejs"); %>
+        <%- include("../../components/navbar.ejs"), { isAuth: isAuth } %>
     </div>
 
     <div class="blog-main-div">
@@ -25,7 +25,7 @@
             <div class="row">
             <% for(var i=0; i < blog_post_list.length; i++) { %>
                 <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 wine-card" >
-                <%- include("../../components/blog-card.ejs", {post: blog_post_list[i]}); %>
+                <%- include("../../components/blog-card.ejs", {post: blog_post_list[i], isAdmin: isAdmin}); %>
                 </div>
             <% } %>
             </div>

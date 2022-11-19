@@ -25,10 +25,13 @@ function initializePassport(passport) {
     new LocalStrategy({ usernameField: "username" }, authenticateUser)
   );
   passport.serializeUser((user, done) => done(null, user.id));
-  passport.deserializeUser((id, done) => {
-    return done(null, async (id) => {
-      const user = await Credential.findOne({ _id: id });
-      return user.id;
+  passport.deserializeUser((_id, done) => {
+    Credential.findById(_id, (err, user) => {
+      if (err) {
+        done(null, false, { error: err });
+      } else {
+        done(null, user);
+      }
     });
   });
 }
