@@ -1,11 +1,12 @@
 import express from "express";
 import * as WineryController from "../controllers/wineryController.js";
+import {checkAuthenticated} from "../utils/sessionValidation.js";
 
 const wineryRouter = express.Router();
 
 wineryRouter.get("/", WineryController.get);
 
-wineryRouter.get("/new", WineryController.getNewPage);
+wineryRouter.get("/new", checkAuthenticated, WineryController.getNewPage);
 
 wineryRouter.get("/map", WineryController.getmap);
 
@@ -13,10 +14,10 @@ wineryRouter.get("/wineries", WineryController.getwineries);
 
 wineryRouter.get("/:id", WineryController.getById);
 
-wineryRouter.delete("/:id", WineryController.remove);
+wineryRouter.delete("/:id", checkAuthenticated, WineryController.remove);
 
-wineryRouter.post("/", WineryController.create);
+wineryRouter.post("/", checkAuthenticated, WineryController.create);
 
-wineryRouter.put("/:id", WineryController.update);
+wineryRouter.put("/:id", checkAuthenticated, WineryController.update);
 
 export default wineryRouter;
